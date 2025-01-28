@@ -20,6 +20,8 @@ apis:
     properties:
       - url: https://api-docs.deepseek.com/api/create-chat-completion
         type: Documentation
+      - type: OpenAPI
+        url: properties/deepseek-chat-completion-api-openapi.yml
     description: Creates a model response for the given chat conversation.
   - aid: deepseek:deepseek-lists-models-api
     name: DeepSeek Lists Models API
