@@ -1,0 +1,556 @@
+executed: '2025-01-28T01:14:04.147Z'
+results:
+  - code: openapi-external-docs-error
+    message: OpenAPI MUST Have External Documentation
+    path: []
+    severity: 0
+    range:
+      start:
+        line: 0
+        character: 0
+      end:
+        line: 62
+        character: 23
+  - code: openapi-tags-object-error
+    message: OpenAPIs MUST Have a Tag Object
+    path: []
+    severity: 0
+    range:
+      start:
+        line: 0
+        character: 0
+      end:
+        line: 62
+        character: 23
+  - code: openapi-info-contact-error
+    message: Info MUST Have Contact Object
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-license-error
+    message: Info MUST Have License
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-terms-of-service-error
+    message: Info MUST Have Terms of Service
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-title-info
+    message: Info Has Title
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 28
+  - code: openapi-info-title-upper-case-info
+    message: Info Title MUST Have First Characters Capitalized
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 28
+  - code: openapi-info-description-info
+    message: Info Has Description
+    path:
+      - info
+      - description
+    severity: 2
+    range:
+      start:
+        line: 3
+        character: 15
+      end:
+        line: 5
+        character: 17
+  - code: openapi-info-version-info
+    message: Info Has Version
+    path:
+      - info
+      - version
+    severity: 2
+    range:
+      start:
+        line: 6
+        character: 11
+      end:
+        line: 6
+        character: 16
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /models
+    severity: 0
+    range:
+      start:
+        line: 10
+        character: 10
+      end:
+        line: 56
+        character: 24
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /models
+    severity: 2
+    range:
+      start:
+        line: 10
+        character: 10
+      end:
+        line: 56
+        character: 24
+  - code: openapi-version-in-path-info
+    message: Version in Path
+    path:
+      - paths
+      - /models
+    severity: 2
+    range:
+      start:
+        line: 10
+        character: 10
+      end:
+        line: 56
+        character: 24
+  - code: openapi-no-request-body-on-get-info
+    message: GET Request Body
+    path:
+      - paths
+      - /models
+      - get
+    severity: 2
+    range:
+      start:
+        line: 11
+        character: 8
+      end:
+        line: 56
+        character: 24
+  - code: openapi-operations-tags-error
+    message: Operations MUST Have Tags
+    path:
+      - paths
+      - /models
+      - get
+    severity: 0
+    range:
+      start:
+        line: 11
+        character: 8
+      end:
+        line: 56
+        character: 24
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /models
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 12
+        character: 15
+      end:
+        line: 12
+        character: 36
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /models
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 12
+        character: 15
+      end:
+        line: 12
+        character: 36
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /models
+      - get
+      - description
+    severity: 2
+    range:
+      start:
+        line: 13
+        character: 19
+      end:
+        line: 15
+        character: 23
+  - code: openapi-operations-operation-ids-camel-case-error
+    message: Operation Identifier MUST Be camelCase
+    path:
+      - paths
+      - /models
+      - get
+      - operationId
+    severity: 0
+    range:
+      start:
+        line: 16
+        character: 19
+      end:
+        line: 16
+        character: 29
+  - code: openapi-operations-operation-ids-camel-case-info
+    message: Operation Identifier Is camelCase
+    path:
+      - paths
+      - /models
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 16
+        character: 19
+      end:
+        line: 16
+        character: 29
+  - code: openapi-operations-operation-ids-info
+    message: Operation Has Identifier
+    path:
+      - paths
+      - /models
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 16
+        character: 19
+      end:
+        line: 16
+        character: 29
+  - code: openapi-response-get-400-status-code-error
+    message: GET Responses MUST Have 400 Status Codes
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 17
+        character: 16
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-401-status-code-error
+    message: GET Responses Has 401 Status Code
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 17
+        character: 16
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-403-status-code-error
+    message: GET Responses Has 403 Status Code
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 17
+        character: 16
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-429-status-code-error
+    message: GET Responses Has 429 Status Code
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 17
+        character: 16
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-500-status-code-error
+    message: GET Responses MUST Have 500 Status Code
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 17
+        character: 16
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-status-code-info
+    message: GET Responses Has 200 Status Codes
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+    severity: 2
+    range:
+      start:
+        line: 18
+        character: 14
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-description-info
+    message: GET 200 Response has description.
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 19
+        character: 23
+      end:
+        line: 19
+        character: 50
+  - code: openapi-response-get-200-content-info
+    message: GET 200 Response Has Content.
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - content
+    severity: 2
+    range:
+      start:
+        line: 20
+        character: 18
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-media-type-examples-error
+    message: GET 200 Response MUST Have Examples
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+    severity: 0
+    range:
+      start:
+        line: 21
+        character: 29
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-media-type-info
+    message: GET 200 Response Has Media Type.
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+    severity: 2
+    range:
+      start:
+        line: 21
+        character: 29
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-media-type-schema-info
+    message: GET 200 Response Has Schema
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+      - schema
+    severity: 2
+    range:
+      start:
+        line: 22
+        character: 21
+      end:
+        line: 54
+        character: 72
+  - code: openapi-response-get-200-media-type-schema-ref-info
+    message: GET 200 Responses Uses Schema Reference
+    path:
+      - paths
+      - /models
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+      - schema
+    severity: 2
+    range:
+      start:
+        line: 22
+        character: 21
+      end:
+        line: 54
+        character: 72
+  - code: openapi-operation-security-definitions-info
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /models
+      - get
+      - security
+    severity: 2
+    range:
+      start:
+        line: 55
+        character: 15
+      end:
+        line: 56
+        character: 24
+  - code: openapi-components-examples-error
+    message: Components MUST Have a Examples Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 57
+        character: 11
+      end:
+        line: 62
+        character: 23
+  - code: openapi-components-headers-error
+    message: Components MUST Have a Headers Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 57
+        character: 11
+      end:
+        line: 62
+        character: 23
+  - code: openapi-components-parameters-error
+    message: Components MUST Have a Parameters Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 57
+        character: 11
+      end:
+        line: 62
+        character: 23
+  - code: openapi-components-responses-error
+    message: Components MUST have a responses property.
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 57
+        character: 11
+      end:
+        line: 62
+        character: 23
+  - code: openapi-components-schemas-error
+    message: Components MUST Have a Schema Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 57
+        character: 11
+      end:
+        line: 62
+        character: 23
+  - code: openapi-security-schemes-info
+    message: Components Have a Security Schemes
+    path:
+      - components
+      - securitySchemes
+    severity: 2
+    range:
+      start:
+        line: 58
+        character: 18
+      end:
+        line: 62
+        character: 23
