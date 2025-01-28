@@ -3,7 +3,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/deepseek/refs/heads/main/apis.yml
 apis:
   - aid: deepseek:deepseek-fim-completion
-    name: DeepSeek FIM Completion
+    name: DeepSeek Fill-In-the-Middle (FIM) Completion API
     tags:
       - Artificial Intelligence
       - AI
