@@ -62,6 +62,7 @@ name: DeepSeek
 tags:
   - Artificial Intelligence
   - AI
+  - Chat
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
