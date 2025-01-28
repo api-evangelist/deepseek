@@ -31,11 +31,16 @@ apis:
     description: Creates a model response for the given chat conversation.
   - aid: deepseek:deepseek-lists-models-api
     name: DeepSeek Lists Models API
-    tags: []
+    tags:
+      - Artificial Intelligence
+      - AI
+      - Models
     humanURL: https://api-docs.deepseek.com/api/list-models
     properties:
       - url: https://api-docs.deepseek.com/api/list-models
         type: Documentation
+      - type: OpenAPI
+        url: properties/deepseek-lists-models-api-openapi.yml
     description: >-
       Lists the currently available models, and provides basic information about
       each one such as the owner and availability. Check Models 
