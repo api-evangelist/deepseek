@@ -1,0 +1,170 @@
+openapi: 3.1.0
+info:
+  title: DeepSeek Chat Completion API
+  description: API for generating chat completions using DeepSeek models.
+  version: 1.0.0
+servers:
+  - url: https://api.deepseek.com
+paths:
+  /chat/completions:
+    post:
+      summary: Create Chat Completion
+      description: Creates a model response for the given chat conversation.
+      operationId: createChatCompletion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - messages
+                - model
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - content
+                      - role
+                    properties:
+                      content:
+                        type: string
+                        description: The content of the message.
+                      role:
+                        type: string
+                        enum:
+                          - system
+                          - user
+                          - assistant
+                        description: The role of the message sender.
+                model:
+                  type: string
+                  enum:
+                    - deepseek-chat
+                    - deepseek-reasoner
+                  description: ID of the model to use.
+                frequency_penalty:
+                  type: number
+                  nullable: true
+                  minimum: -2
+                  maximum: 2
+                  default: 0
+                  description: >
+                    Positive values penalize new tokens based on their
+                    frequency  in the text, reducing repetition.
+                max_tokens:
+                  type: integer
+                  nullable: true
+                  minimum: 1
+                  maximum: 8192
+                  default: 4096
+                  description: The maximum number of tokens to generate.
+                presence_penalty:
+                  type: number
+                  nullable: true
+                  minimum: -2
+                  maximum: 2
+                  default: 0
+                  description: >
+                    Positive values penalize new tokens that appear in the text,
+                    encouraging discussion of new topics.
+                response_format:
+                  type: object
+                  nullable: true
+                  description: Format of the response.
+                  properties:
+                    type:
+                      type: string
+                      description: The format of the response, e.g., text.
+                stop:
+                  type: object
+                  nullable: true
+                  description: Sequence where the model stops generating tokens.
+                stream:
+                  type: boolean
+                  nullable: true
+                  description: Whether to stream responses as they are generated.
+                stream_options:
+                  type: object
+                  nullable: true
+                  description: Options for streaming responses.
+                temperature:
+                  type: number
+                  nullable: true
+                  maximum: 2
+                  default: 1
+                  description: >-
+                    Controls randomness in generation (higher values = more
+                    random).
+                top_p:
+                  type: number
+                  nullable: true
+                  maximum: 1
+                  default: 1
+                  description: >
+                    Nucleus sampling parameter. Tokens are selected from the 
+                    top_p probability mass.
+                tools:
+                  type: array
+                  nullable: true
+                  items:
+                    type: object
+                  description: Tools available for the model to use.
+                tool_choice:
+                  type: object
+                  nullable: true
+                  description: Configuration for tool selection.
+                logprobs:
+                  type: boolean
+                  nullable: true
+                  description: Whether to return log probabilities of output tokens.
+                top_logprobs:
+                  type: integer
+                  nullable: true
+                  maximum: 20
+                  description: >
+                    Number of most likely tokens to return with log
+                    probabilities. Requires logprobs to be true.
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - id
+                  - choices
+                  - created
+                  - model
+                  - system_fingerprint
+                  - object
+                properties:
+                  id:
+                    type: string
+                    description: Unique identifier for the chat completion.
+                  choices:
+                    type: array
+                    items:
+                      type: object
+                      description: Array of generated responses.
+                  created:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp when the response was created.
+                  model:
+                    type: string
+                    description: Model used for the response.
+                  system_fingerprint:
+                    type: string
+                    description: Backend configuration fingerprint.
+                  object:
+                    type: string
+                    enum:
+                      - chat.completion
+                    description: Object type.
+                  usage:
+                    type: object
+                    description: Token usage details.
