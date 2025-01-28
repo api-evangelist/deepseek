@@ -1,9 +1,7 @@
 openapi: 3.1.0
 info:
-  title: DeepSeek FIM Completion API (Beta)
-  description: >-
-    FIM (Fill-In-the-Middle) Completion API for generating completions using
-    DeepSeek models.
+  title: DeepSeek FIM Completion
+  description: The DeepSeek API uses an API format compatible with OpenAI.
   version: 1.0.0
 servers:
   - url: https://api.deepseek.com/beta
