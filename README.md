@@ -28,11 +28,12 @@ The DeepSeek API uses an API format compatible with OpenAI.
 
 #### Tags:
 
- - API
+ - Artificial Intelligence, AI, Fill-In-The-Middle
 
 #### Properties
 
 - [Documentation](https://api-docs.deepseek.com/)
+- [OpenAPI](properties/deepseek-fim-completion-openapi.yml)
 ### DeepSeek Chat Completion API
 Creates a model response for the given chat conversation.
 
@@ -41,11 +42,12 @@ Creates a model response for the given chat conversation.
 
 #### Tags:
 
- - No Tags
+ - Artificial Intelligence, AI, Chat, Chat Completion
 
 #### Properties
 
 - [Documentation](https://api-docs.deepseek.com/api/create-chat-completion)
+- [OpenAPI](properties/deepseek-chat-completion-api-openapi.yml)
 ### DeepSeek Lists Models API
 Lists the currently available models, and provides basic information about each one such as the owner and availability. Check Models 
 
@@ -54,11 +56,12 @@ Lists the currently available models, and provides basic information about each 
 
 #### Tags:
 
- - No Tags
+ - Artificial Intelligence, AI, Models
 
 #### Properties
 
 - [Documentation](https://api-docs.deepseek.com/api/list-models)
+- [OpenAPI](properties/deepseek-lists-models-api-openapi.yml)
 ### DeepSeek User Balance API
 Get user current balance
 
@@ -67,11 +70,12 @@ Get user current balance
 
 #### Tags:
 
- - No Tags
+ - Artificial Intelligence, AI, Balance, Pricing
 
 #### Properties
 
 - [Documentation](https://api-docs.deepseek.com/api/get-user-balance)
+- [OpenAPI](properties/deepseek-user-balance-api-openapi.yml)
 
 ## Common Properties
 
