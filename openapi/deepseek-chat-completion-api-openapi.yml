@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: DeepSeek Chat Completion API
-  description: API for generating chat completions using DeepSeek models.
+  description: Creates a model response for the given chat conversation.
   version: 1.0.0
 servers:
   - url: https://api.deepseek.com
