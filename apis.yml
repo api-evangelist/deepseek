@@ -46,11 +46,17 @@ apis:
       each one such as the owner and availability. Check Models 
   - aid: deepseek:deepseek-user-balance-api
     name: DeepSeek User Balance API
-    tags: []
+    tags:
+      - Artificial Intelligence
+      - AI
+      - Balance
+      - Pricing
     humanURL: https://api-docs.deepseek.com/api/get-user-balance
     properties:
       - url: https://api-docs.deepseek.com/api/get-user-balance
         type: Documentation
+      - type: OpenAPI
+        url: properties/deepseek-user-balance-api-openapi.yml
     description: Get user current balance
 name: DeepSeek
 tags:
