@@ -10,6 +10,8 @@ apis:
     properties:
       - url: https://api-docs.deepseek.com/
         type: Documentation
+      - type: OpenAPI
+        url: properties/deepseek-fim-completion-openapi.yml
     description: The DeepSeek API uses an API format compatible with OpenAI.
   - aid: deepseek:deepseek-chat-completion-api
     name: DeepSeek Chat Completion API
