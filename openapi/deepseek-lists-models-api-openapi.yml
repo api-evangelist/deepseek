@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: DeepSeek Models API
+  description: >-
+    API for listing available models with basic information, including owner and
+    availability.
+  version: 1.0.0
+servers:
+  - url: https://api.deepseek.com
+paths:
+  /models:
+    get:
+      summary: List Available Models
+      description: >-
+        Lists the currently available models and provides basic information
+        about each one.
+      operationId: listModels
+      responses:
+        '200':
+          description: A list of available models.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - object
+                  - data
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - list
+                    description: Type of the response object.
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - id
+                        - name
+                        - owner
+                        - availability
+                      properties:
+                        id:
+                          type: string
+                          description: Unique identifier for the model.
+                        name:
+                          type: string
+                          description: The name of the model.
+                        owner:
+                          type: string
+                          description: The owner of the model.
+                        availability:
+                          type: string
+                          description: Availability status of the model.
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
