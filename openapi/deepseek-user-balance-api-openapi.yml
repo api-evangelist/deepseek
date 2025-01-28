@@ -1,0 +1,53 @@
+openapi: 3.1.0
+info:
+  title: DeepSeek User Balance API
+  description: API for retrieving the current balance information for a user.
+  version: 1.0.0
+servers:
+  - url: https://api.deepseek.com
+paths:
+  /user/balance:
+    get:
+      summary: Get User Balance
+      description: >-
+        Retrieves the current balance information for a user, including
+        availability for API calls.
+      operationId: getUserBalance
+      responses:
+        '200':
+          description: User balance information.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - is_available
+                  - balance_infos
+                properties:
+                  is_available:
+                    type: boolean
+                    description: >-
+                      Indicates whether the user's balance is sufficient for API
+                      calls.
+                  balance_infos:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: The type of balance (e.g., credits, tokens).
+                        amount:
+                          type: number
+                          description: The current balance amount for the specified type.
+                        currency:
+                          type: string
+                          description: The currency or unit of the balance (if applicable).
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
