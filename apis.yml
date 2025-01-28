@@ -44,7 +44,49 @@ tags:
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-common: []
+common:
+  - name: Documentation
+    url: https://api-docs.deepseek.com/
+    type: Documentation
+  - name: Pricing
+    url: https://api-docs.deepseek.com/quick_start/pricing
+    type: Pricing
+  - name: Authentication
+    description: 'null'
+    url: https://api-docs.deepseek.com/quick_start/token_usage
+    type: Authentication
+  - name: Rate Limit | DeepSeek API Docs
+    description: 'null'
+    url: https://api-docs.deepseek.com/quick_start/rate_limit
+    type: RateLimits
+  - name: Error Codes | DeepSeek API Docs
+    description: 'null'
+    url: https://api-docs.deepseek.com/quick_start/error_codes
+    type: Errors
+  - name: DeepSeek Service Status
+    description: 'null'
+    url: https://status.deepseek.com/
+    type: Status
+  - name: FAQ | DeepSeek API Docs
+    description: 'null'
+    url: https://api-docs.deepseek.com/faq
+    type: FAQ
+  - name: Change Log | DeepSeek API Docs
+    description: 'null'
+    url: https://api-docs.deepseek.com/updates
+    type: ChangeLog
+  - name: DeepSeek
+    description: 'null'
+    url: https://www.deepseek.com/
+    type: Website
+  - name: DeepSeek Privacy Policy
+    description: 'null'
+    url: https://chat.deepseek.com/downloads/DeepSeek%20Privacy%20Policy.html
+    type: PrivacyPolicy
+  - name: DeepSeek Terms of Use
+    description: 'null'
+    url: https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html
+    type: TermsOfService
 created: '2025-01-27'
 modified: '2025-01-27'
 position: Consuming
