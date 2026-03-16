@@ -110,7 +110,7 @@ common:
     type: TermsOfService
     description: ''
 created: '2025-01-27'
-modified: '2025-01-27'
+modified: '2026-03-16'
 position: Consuming
 description: >-
   DeepSeek is an advanced search engine that utilizes cutting-edge technology to
@@ -124,5 +124,5 @@ description: >-
   search experience more efficient and intuitive.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
