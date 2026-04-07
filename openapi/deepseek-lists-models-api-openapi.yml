@@ -55,9 +55,13 @@ paths:
                           description: Availability status of the model.
       security:
         - bearerAuth: []
+      tags:
+        - Models
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
+tags:
+  - name: Models

@@ -5,8 +5,8 @@ apis:
   - aid: deepseek:deepseek-fim-completion
     name: DeepSeek Fill-In-The-Middle (FIM) Completion API
     tags:
-      - Artificial Intelligence
       - AI
+      - Artificial Intelligence
       - Fill-In-The-Middle
     humanURL: https://api-docs.deepseek.com/
     properties:
@@ -18,8 +18,8 @@ apis:
   - aid: deepseek:deepseek-chat-completion-api
     name: DeepSeek Chat Completion API
     tags:
-      - Artificial Intelligence
       - AI
+      - Artificial Intelligence
       - Chat
       - Chat Completion
     humanURL: https://api-docs.deepseek.com/api/create-chat-completion
@@ -32,8 +32,8 @@ apis:
   - aid: deepseek:deepseek-lists-models-api
     name: DeepSeek Lists Models API
     tags:
-      - Artificial Intelligence
       - AI
+      - Artificial Intelligence
       - Models
     humanURL: https://api-docs.deepseek.com/api/list-models
     properties:
@@ -47,8 +47,8 @@ apis:
   - aid: deepseek:deepseek-user-balance-api
     name: DeepSeek User Balance API
     tags:
-      - Artificial Intelligence
       - AI
+      - Artificial Intelligence
       - Balance
       - Pricing
     humanURL: https://api-docs.deepseek.com/api/get-user-balance
@@ -61,8 +61,8 @@ apis:
       Get user current balance.
 name: DeepSeek
 tags:
-  - Artificial Intelligence
   - AI
+  - Artificial Intelligence
   - Chat
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg

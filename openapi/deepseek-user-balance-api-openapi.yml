@@ -45,9 +45,13 @@ paths:
                           description: The currency or unit of the balance (if applicable).
       security:
         - bearerAuth: []
+      tags:
+        - User
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
+tags:
+  - name: User

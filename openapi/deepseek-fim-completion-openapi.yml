@@ -141,3 +141,7 @@ paths:
                   usage:
                     type: object
                     description: Details of token usage.
+      tags:
+        - Completions
+tags:
+  - name: Completions

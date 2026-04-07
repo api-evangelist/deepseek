@@ -167,3 +167,7 @@ paths:
                   usage:
                     type: object
                     description: Token usage details.
+      tags:
+        - Chat
+tags:
+  - name: Chat
