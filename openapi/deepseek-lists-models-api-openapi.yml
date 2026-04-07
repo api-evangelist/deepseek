@@ -10,7 +10,7 @@ servers:
 paths:
   /models:
     get:
-      summary: List Available Models
+      summary: DeepSeek List Available Models
       description: >-
         Lists the currently available models and provides basic information
         about each one.

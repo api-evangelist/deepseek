@@ -8,7 +8,7 @@ servers:
 paths:
   /completions:
     post:
-      summary: Create FIM Completion
+      summary: DeepSeek Create FIM Completion
       description: >-
         Generates a fill-in-the-middle completion for a given prompt using
         DeepSeek models.
@@ -100,8 +100,7 @@ paths:
                   maximum: 1
                   default: 1
                   description: >
-                    Nucleus sampling parameter. Tokens are selected from the 
-                    top_p probability mass.
+                    Nucleus sampling parameter. Tokens are selected from the  top_p probability mass.
       responses:
         '200':
           description: Successful completion.

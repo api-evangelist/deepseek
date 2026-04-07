@@ -8,7 +8,7 @@ servers:
 paths:
   /user/balance:
     get:
-      summary: Get User Balance
+      summary: DeepSeek Get User Balance
       description: >-
         Retrieves the current balance information for a user, including
         availability for API calls.

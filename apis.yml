@@ -3,7 +3,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/deepseek/refs/heads/main/apis.yml
 apis:
   - aid: deepseek:deepseek-fim-completion
-    name: DeepSeek Fill-In-the-Middle (FIM) Completion API
+    name: DeepSeek Fill-In-The-Middle (FIM) Completion API
     tags:
       - Artificial Intelligence
       - AI
@@ -42,8 +42,8 @@ apis:
       - url: openapi/deepseek-lists-models-api-openapi.yml
         type: OpenAPI
     description: >-
-      Lists the currently available models, and provides basic information about
-      each one such as the owner and availability. Check Models 
+      Lists the currently available models, and provides basic information about each
+      one such as the owner and availability. Check Models.
   - aid: deepseek:deepseek-user-balance-api
     name: DeepSeek User Balance API
     tags:
@@ -57,7 +57,8 @@ apis:
         type: Documentation
       - url: openapi/deepseek-user-balance-api-openapi.yml
         type: OpenAPI
-    description: Get user current balance
+    description: >-
+      Get user current balance.
 name: DeepSeek
 tags:
   - Artificial Intelligence
@@ -113,15 +114,10 @@ created: '2025-01-27'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  DeepSeek is an advanced search engine that utilizes cutting-edge technology to
-  provide users with highly relevant and accurate search results. Unlike
-  traditional search engines, DeepSeek utilizes artificial intelligence and
-  machine learning algorithms to understand user intent and deliver customized
-  search results. With DeepSeek, users can quickly find the information they are
-  looking for, whether it be articles, videos, images, or products, without
-  having to sift through pages of irrelevant content. DeepSeek is
-  revolutionizing the way people search for information online, making the
-  search experience more efficient and intuitive.
+  DeepSeek is an advanced search engine that utilizes cutting-edge technology to provide
+  users with highly relevant and accurate search results. Unlike traditional search
+  engines, DeepSeek utilizes artificial intelligence and machine learning algorithms
+  to understand user intent and deliver customized search results.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

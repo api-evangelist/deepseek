@@ -8,7 +8,7 @@ servers:
 paths:
   /chat/completions:
     post:
-      summary: Create Chat Completion
+      summary: DeepSeek Create Chat Completion
       description: Creates a model response for the given chat conversation.
       operationId: createChatCompletion
       requestBody:
@@ -104,8 +104,7 @@ paths:
                   maximum: 1
                   default: 1
                   description: >
-                    Nucleus sampling parameter. Tokens are selected from the 
-                    top_p probability mass.
+                    Nucleus sampling parameter. Tokens are selected from the  top_p probability mass.
                 tools:
                   type: array
                   nullable: true
