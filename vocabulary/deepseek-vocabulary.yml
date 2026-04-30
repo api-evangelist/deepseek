@@ -1,0 +1,25 @@
+name: DeepSeek Vocabulary
+description: >-
+  Shared vocabulary of terms used across the DeepSeek API and large language
+  model platform.
+terms:
+  - term: Chat Completion
+    definition: A model response generated for a sequence of chat messages with system, user, and assistant roles.
+  - term: FIM Completion
+    definition: Fill-In-The-Middle completion where the model generates text between a prompt and an optional suffix.
+  - term: Reasoner Model
+    definition: A DeepSeek model variant tuned for explicit chain-of-thought reasoning on complex problems.
+  - term: Thinking Mode
+    definition: A configurable reasoning effort setting that lets the model spend additional tokens on internal reasoning before answering.
+  - term: Context Caching
+    definition: An optimization that caches repeated prompt prefixes to reduce token cost and latency for repeated requests.
+  - term: Tool Calling
+    definition: A model capability where the assistant emits structured calls to developer-defined functions or tools.
+  - term: JSON Mode
+    definition: A response format option that constrains the model to emit valid JSON.
+  - term: Token
+    definition: The unit of text counted for input and output billing in the DeepSeek API.
+  - term: Balance
+    definition: The remaining account credit available for DeepSeek API usage.
+  - term: OpenAI-Compatible Endpoint
+    definition: A DeepSeek API surface that mirrors the OpenAI request and response shapes so existing clients can be reused.

@@ -1,0 +1,33 @@
+extends:
+  - spectral:oas
+rules:
+  deepseek-chat-server:
+    description: Servers should reference the DeepSeek API base URL.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "api.deepseek.com"
+  deepseek-chat-completions-path:
+    description: API should expose the /chat/completions resource.
+    given: $.paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "/chat/completions"
+  deepseek-chat-operation-id:
+    description: Chat completion operations should declare an operationId.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy
+  deepseek-chat-bearer-auth:
+    description: Security schemes should include HTTP bearer authentication.
+    given: $.components.securitySchemes[*]
+    severity: warn
+    then:
+      field: scheme
+      function: truthy

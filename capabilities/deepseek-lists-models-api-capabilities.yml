@@ -1,0 +1,17 @@
+name: DeepSeek List Models API Capabilities
+description: >-
+  Capabilities exposed by the DeepSeek List Models API for discovering the
+  models currently available to an account.
+capabilities:
+  - name: List Models
+    description: Returns a list of model objects available to the authenticated account.
+    operationId: listModels
+    method: GET
+    path: /models
+use_cases:
+  - name: Model discovery
+    description: Programmatically enumerate available DeepSeek models before sending requests.
+  - name: Capability gating
+    description: Conditionally enable or disable application features based on which models are accessible.
+  - name: Deprecation handling
+    description: Detect when legacy models are no longer listed and automatically fall back to current models.

@@ -1,0 +1,22 @@
+name: DeepSeek Chat Completion API Capabilities
+description: >-
+  Capabilities exposed by the DeepSeek Chat Completion API for generating
+  conversational responses with the deepseek-chat and deepseek-reasoner
+  models.
+capabilities:
+  - name: Create Chat Completion
+    description: Generate a model response for a given chat conversation, with optional tool calling, JSON mode, and streaming.
+    operationId: createChatCompletion
+    method: POST
+    path: /chat/completions
+use_cases:
+  - name: Conversational assistants
+    description: Build chat assistants and copilots powered by deepseek-chat or deepseek-reasoner.
+  - name: Reasoning workflows
+    description: Use the deepseek-reasoner model for tasks that require step-by-step problem solving.
+  - name: Tool calling
+    description: Have the model invoke developer-defined tools and functions to interact with external systems.
+  - name: Structured outputs
+    description: Request JSON-formatted output for downstream parsing and integration.
+  - name: OpenAI-compatible migration
+    description: Repoint existing OpenAI Chat Completions clients at api.deepseek.com to evaluate or switch to DeepSeek models.

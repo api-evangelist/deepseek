@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.deepseek.com/",
+    "schema": "https://schema.org/",
+    "deepseek": "https://schema.deepseek.com/",
+    "ChatCompletion": "deepseek:ChatCompletion",
+    "Message": "deepseek:Message",
+    "Model": "deepseek:Model",
+    "ToolCall": "deepseek:ToolCall",
+    "Usage": "deepseek:Usage",
+    "Balance": "deepseek:Balance",
+    "id": {"@id": "schema:identifier", "@type": "schema:Text"},
+    "model": {"@id": "deepseek:model", "@type": "schema:Text"},
+    "role": {"@id": "deepseek:role", "@type": "schema:Text"},
+    "content": {"@id": "schema:text", "@type": "schema:Text"},
+    "prompt_tokens": {"@id": "deepseek:promptTokens", "@type": "schema:Integer"},
+    "completion_tokens": {"@id": "deepseek:completionTokens", "@type": "schema:Integer"},
+    "total_tokens": {"@id": "deepseek:totalTokens", "@type": "schema:Integer"},
+    "currency": {"@id": "schema:priceCurrency", "@type": "schema:Text"},
+    "total_balance": {"@id": "deepseek:totalBalance", "@type": "schema:Number"}
+  }
+}

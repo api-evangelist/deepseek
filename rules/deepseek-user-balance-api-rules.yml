@@ -1,0 +1,26 @@
+extends:
+  - spectral:oas
+rules:
+  deepseek-balance-server:
+    description: Servers should reference api.deepseek.com.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "api.deepseek.com"
+  deepseek-balance-path:
+    description: API should expose the /user/balance resource.
+    given: $.paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "/user/balance"
+  deepseek-balance-operation-id:
+    description: Operations should declare an operationId.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy

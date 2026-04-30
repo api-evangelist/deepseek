@@ -1,0 +1,26 @@
+extends:
+  - spectral:oas
+rules:
+  deepseek-fim-beta-server:
+    description: Servers should reference the DeepSeek beta endpoint.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "deepseek.com"
+  deepseek-fim-completions-path:
+    description: API should expose the /completions resource for FIM completions.
+    given: $.paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "/completions"
+  deepseek-fim-operation-id:
+    description: Operations should declare an operationId.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy

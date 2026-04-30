@@ -1,0 +1,17 @@
+name: DeepSeek User Balance API Capabilities
+description: >-
+  Capabilities exposed by the DeepSeek User Balance API for retrieving the
+  current account balance.
+capabilities:
+  - name: Get User Balance
+    description: Returns the current balance for the authenticated DeepSeek account.
+    operationId: getUserBalance
+    method: GET
+    path: /user/balance
+use_cases:
+  - name: Spend monitoring
+    description: Track DeepSeek API spend and remaining credit programmatically.
+  - name: Usage gating
+    description: Pause or throttle workloads when the account balance falls below a threshold.
+  - name: Billing dashboards
+    description: Surface DeepSeek balance information inside internal cost dashboards.
