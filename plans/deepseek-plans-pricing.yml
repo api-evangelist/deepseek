@@ -4,164 +4,117 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: DeepSeek
 providerId: deepseek
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - AI
   - Artificial Intelligence
   - Chat
-  - Chat Completion
   - LLM
   - Large Language Models
-  - Reasoning
-  - Code Completion
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Token-Based Pricing
+description: DeepSeek prices its API on a per-token, pay-as-you-go basis with no monthly subscription
+  tier. Two production models are available — DeepSeek-V4-Flash (non-thinking) and DeepSeek-V4-Pro
+  (thinking/reasoning). Both expose distinct prices for cache-hit and cache-miss input tokens plus output
+  tokens. The legacy `deepseek-chat` and `deepseek-reasoner` model identifiers are deprecated aliases.
+  V4-Pro carries a 75 percent promotional discount valid through 2026-05-31. Account top-ups are prepaid;
+  there is no separate enterprise SKU on the public site.
+sources:
+  - https://api-docs.deepseek.com/quick_start/pricing
+  - https://api-docs.deepseek.com/quick_start/rate_limit
 plans:
-  - id: deepseek-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the DeepSeek API surface. Intended for evaluation, prototyping, and
-      low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: deepseek-v4-flash
+    name: DeepSeek-V4-Flash
+    type: usage-based
+    description: Pay-as-you-go pricing for DeepSeek-V4-Flash (non-thinking mode), the default chat
+      and FIM completion model. Replaces the deprecated `deepseek-chat` alias.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: DeepSeek Chat Completion API
-      - name: DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - name: DeepSeek List Models API
-      - name: DeepSeek User Balance API
-  - id: deepseek-pro
-    name: Professional
-    type: paid
-    description: Production tier for DeepSeek. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
+      - label: Input tokens (cache hit)
+        name: input_tokens_cache_hit
         type: metered
-        metric: requests
+        metric: tokens
         limit: -1
-        timeFrame: month
+        timeFrame: usage
         geo: global
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1000
-        price: TBD
+        unit: 1000000
+        price: '$0.0028'
         userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: DeepSeek Chat Completion API
-      - name: DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - name: DeepSeek List Models API
-      - name: DeepSeek User Balance API
-  - id: deepseek-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for DeepSeek. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Input tokens (cache miss)
+        name: input_tokens_cache_miss
+        type: metered
+        metric: tokens
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: custom
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.14'
         userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.deepseek.com
-          - https://api.deepseek.com/beta
-        unit: 1
-        price: custom
+      - label: Output tokens
+        name: output_tokens
+        type: metered
+        metric: tokens
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.28'
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: DeepSeek Chat Completion API
-      - name: DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - name: DeepSeek List Models API
-      - name: DeepSeek User Balance API
+      - name: 1M token context window
+      - name: 384K max output tokens
+      - name: Chat Completions API
+      - name: Fill-In-The-Middle (FIM) Completions API
+      - name: JSON output
+      - name: Tool calls
+      - name: Chat prefix completion
+      - name: Context caching
+  - id: deepseek-v4-pro
+    name: DeepSeek-V4-Pro
+    type: usage-based
+    description: Pay-as-you-go pricing for DeepSeek-V4-Pro (thinking / reasoning mode). Replaces
+      the deprecated `deepseek-reasoner` alias. Listed prices reflect the 75 percent promotional
+      discount in effect through 2026-05-31.
+    entries:
+      - label: Input tokens (cache hit)
+        name: input_tokens_cache_hit
+        type: metered
+        metric: tokens
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.003625'
+        userMultiplied: false
+      - label: Input tokens (cache miss)
+        name: input_tokens_cache_miss
+        type: metered
+        metric: tokens
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.435'
+        userMultiplied: false
+      - label: Output tokens
+        name: output_tokens
+        type: metered
+        metric: tokens
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.87'
+        userMultiplied: false
+    elements:
+      - name: 1M token context window
+      - name: 384K max output tokens
+      - name: Reasoning / thinking mode
+      - name: Chat Completions API
+      - name: JSON output
+      - name: Tool calls
+      - name: Chat prefix completion
+      - name: Context caching
+      - name: 75% promotional discount through 2026-05-31
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

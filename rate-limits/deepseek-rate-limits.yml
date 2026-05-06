@@ -4,104 +4,54 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: DeepSeek
 providerId: deepseek
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - AI
   - Artificial Intelligence
   - Chat
-  - Chat Completion
   - LLM
   - Large Language Models
-  - Reasoning
-  - Code Completion
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the DeepSeek API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: DeepSeek does not publish fixed numerical rate limits. Instead, the API dynamically
+  caps user concurrency based on current server load and returns HTTP 429 once a caller's concurrency
+  ceiling is reached. There is no hard requests-per-minute or tokens-per-minute cap published on the
+  public docs; sustained throughput is therefore best-effort and varies in real time. Inference
+  connections that have not begun streaming within ten minutes of being accepted are closed by the
+  server.
+sources:
+  - https://api-docs.deepseek.com/quick_start/rate_limit
+  - https://api-docs.deepseek.com/quick_start/pricing
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
+  - name: Dynamic concurrency cap
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - DeepSeek Chat Completion API
-      - DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - DeepSeek List Models API
-      - DeepSeek User Balance API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - DeepSeek Chat Completion API
-      - DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - DeepSeek List Models API
-      - DeepSeek User Balance API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - DeepSeek Chat Completion API
-      - DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - DeepSeek List Models API
-      - DeepSeek User Balance API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - DeepSeek Chat Completion API
-      - DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - DeepSeek List Models API
-      - DeepSeek User Balance API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - DeepSeek Chat Completion API
-      - DeepSeek Fill-In-The-Middle (FIM) Completion API
-      - DeepSeek List Models API
-      - DeepSeek User Balance API
+    metric: concurrent_requests
+    limit: dynamic — varies with current server load
+    notes: DeepSeek throttles by concurrent in-flight requests rather than RPS. The exact ceiling
+      is not published and shifts with load.
+  - name: Inference connection timeout
+    scope: connection
+    metric: seconds_to_first_token
+    limit: 600
+    timeFrame: second
+    notes: If inference does not start within 10 minutes after the connection is accepted, the
+      server closes the connection. Affects very long queues during load spikes.
 policies:
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: On HTTP 429, callers should back off and retry with exponential delay and jitter.
+      DeepSeek does not document a Retry-After header, so clients must use their own retry budget.
+  - name: Keep-Alive Signaling
+    description: While a request is queued the server returns empty lines (non-streaming) or SSE
+      keep-alive comments (streaming). Clients must tolerate these placeholder frames.
+  - name: Connection Lifetime
+    description: Drop and re-establish connections that have been idle for more than 10 minutes
+      without any token output, since the server will close them.
+  - name: Concurrency Sizing
+    description: Because limits are dynamic, callers should target a configurable concurrency
+      budget per API key and reduce parallelism when 429 responses spike.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
