@@ -8,12 +8,12 @@ description: >-
   and Anthropic SDKs. The DeepSeek API offers chat completions, fill-in-the-middle
   completions, function calling, JSON output, streaming, multi-turn conversations,
   context caching, and a thinking/reasoning mode for complex problem solving.
-type: Contract
+kind: contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 position: Consuming
 specificationVersion: '0.19'
-xType: company
+kind: company
 tags:
   - AI
   - Artificial Intelligence
@@ -129,7 +129,7 @@ common:
     url: https://api-docs.deepseek.com/quick_start/rate_limit
   - type: Errors
     url: https://api-docs.deepseek.com/quick_start/error_codes
-  - type: Status
+  - type: StatusPage
     url: https://status.deepseek.com/
   - type: FAQ
     url: https://api-docs.deepseek.com/faq
@@ -141,7 +141,7 @@ common:
     url: https://chat.deepseek.com/downloads/DeepSeek%20Privacy%20Policy.html
   - type: TermsOfService
     url: https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/deepseek-context.jsonld
   - type: Vocabulary
     url: vocabulary/deepseek-vocabulary.yml
