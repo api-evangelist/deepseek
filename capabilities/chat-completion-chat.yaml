@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DeepSeek Chat Completion API — Chat
+  description: 'DeepSeek Chat Completion API — Chat. 1 operations. Lead operation: DeepSeek Create Chat Completion. Self-contained
+    Naftiko capability covering one Deepseek business surface.'
+  tags:
+  - Deepseek
+  - Chat
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEPSEEK_API_KEY: DEEPSEEK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chat-completion-chat
+    baseUri: https://api.deepseek.com
+    description: DeepSeek Chat Completion API — Chat business capability. Self-contained, no shared references.
+    resources:
+    - name: chat-completions
+      path: /chat/completions
+      operations:
+      - name: createchatcompletion
+        method: POST
+        description: DeepSeek Create Chat Completion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: chat-completion-chat-rest
+    port: 8080
+    description: REST adapter for DeepSeek Chat Completion API — Chat. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/chat/completions
+      name: chat-completions
+      description: REST surface for chat-completions.
+      operations:
+      - method: POST
+        name: createchatcompletion
+        description: DeepSeek Create Chat Completion
+        call: chat-completion-chat.createchatcompletion
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chat-completion-chat-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DeepSeek Chat Completion API — Chat. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: deepseek-create-chat-completion
+      description: DeepSeek Create Chat Completion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chat-completion-chat.createchatcompletion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
