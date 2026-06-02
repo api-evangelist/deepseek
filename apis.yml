@@ -20,7 +20,7 @@ tags:
   - Reasoning
   - Code Completion
 created: '2025-01-27'
-modified: '2026-05-19'
+modified: '2026-05-29'
 apis:
   - aid: deepseek:deepseek-chat-completion-api
     name: DeepSeek Chat Completion API
@@ -40,6 +40,8 @@ apis:
       url: https://api-docs.deepseek.com/api/create-chat-completion
     - type: OpenAPI
       url: openapi/deepseek-chat-completion-api-openapi.yml
+    - type: AsyncAPI
+      url: asyncapi/deepseek-asyncapi.yml
     - type: Rules
       url: rules/deepseek-chat-completion-api-rules.yml
     - type: Capabilities
@@ -63,6 +65,8 @@ apis:
       url: https://api-docs.deepseek.com/guides/fim_completion
     - type: OpenAPI
       url: openapi/deepseek-fim-completion-openapi.yml
+    - type: AsyncAPI
+      url: asyncapi/deepseek-asyncapi.yml
     - type: Rules
       url: rules/deepseek-fim-completion-rules.yml
     - type: Capabilities

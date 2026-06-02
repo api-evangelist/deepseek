@@ -1,0 +1,525 @@
+asyncapi: '2.6.0'
+info:
+  title: DeepSeek Streaming API (HTTP + SSE)
+  version: '1.0.0'
+  description: |
+    AsyncAPI definition for the streaming surface of the DeepSeek API.
+
+    DeepSeek exposes an OpenAI-compatible HTTP API. When the `stream` request
+    parameter is set to `true`, the server upgrades the response to a
+    `text/event-stream` (Server-Sent Events) channel and emits a sequence of
+    data-only events. Each event contains a JSON payload representing a
+    streaming chunk, and the stream is terminated by a sentinel `data: [DONE]`
+    event.
+
+    Two streaming surfaces are described:
+
+      * `/chat/completions` (production) - chat completions for `deepseek-chat`
+        and `deepseek-reasoner`. The `deepseek-reasoner` model additionally
+        emits a `reasoning_content` field in `delta` chunks during the
+        chain-of-thought phase, followed by `content` deltas for the final
+        answer.
+      * `/beta/completions` (beta) - Fill-In-the-Middle (FIM) text completions
+        that emit `text_completion.chunk` events using the OpenAI legacy
+        completions stream shape.
+
+    Only events documented at https://api-docs.deepseek.com are represented;
+    no fields have been inferred or fabricated beyond the official docs.
+  contact:
+    name: DeepSeek API Docs
+    url: https://api-docs.deepseek.com
+  license:
+    name: DeepSeek Terms of Use
+    url: https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html
+
+defaultContentType: text/event-stream
+
+servers:
+  production:
+    url: https://api.deepseek.com
+    protocol: https
+    description: |
+      DeepSeek OpenAI-compatible HTTPS endpoint. Streaming responses are
+      delivered as `text/event-stream` (Server-Sent Events) when the request
+      body sets `"stream": true`.
+    security:
+      - bearerAuth: []
+    bindings:
+      http:
+        bindingVersion: '0.3.0'
+  beta:
+    url: https://api.deepseek.com/beta
+    protocol: https
+    description: |
+      DeepSeek beta HTTPS endpoint. Required base URL for the FIM
+      (Fill-In-the-Middle) completions API. Streaming responses are delivered
+      as `text/event-stream` (Server-Sent Events) when the request body sets
+      `"stream": true`.
+    security:
+      - bearerAuth: []
+    bindings:
+      http:
+        bindingVersion: '0.3.0'
+
+channels:
+  /chat/completions:
+    description: |
+      Server-Sent Events stream of `chat.completion.chunk` objects produced
+      by `POST /chat/completions` when `stream` is `true`. The first chunk
+      typically carries `delta.role = "assistant"`. Subsequent chunks carry
+      incremental `delta.content` tokens, and - for the `deepseek-reasoner`
+      model - `delta.reasoning_content` tokens during the chain-of-thought
+      phase. The final data chunk before the terminator may include a
+      populated `usage` object when `stream_options.include_usage` is set to
+      `true`. The stream is closed by a literal `data: [DONE]` event.
+    servers:
+      - production
+    bindings:
+      http:
+        bindingVersion: '0.3.0'
+        type: response
+        method: POST
+    subscribe:
+      operationId: subscribeChatCompletionStream
+      summary: Receive streaming chat completion chunks.
+      description: |
+        Each Server-Sent Event has the form `data: <json>` where `<json>` is
+        either a `chat.completion.chunk` object or the literal string `[DONE]`
+        used as the stream terminator.
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      message:
+        oneOf:
+          - $ref: '#/components/messages/ChatCompletionChunk'
+          - $ref: '#/components/messages/StreamDone'
+
+  /beta/completions:
+    description: |
+      Server-Sent Events stream of `text_completion` chunks produced by
+      `POST /beta/completions` (the Fill-In-the-Middle completions endpoint)
+      when `stream` is `true`. Each event is a partial completion chunk
+      following the OpenAI legacy completions streaming shape. The stream is
+      closed by a literal `data: [DONE]` event.
+    servers:
+      - beta
+    bindings:
+      http:
+        bindingVersion: '0.3.0'
+        type: response
+        method: POST
+    subscribe:
+      operationId: subscribeFimCompletionStream
+      summary: Receive streaming FIM (Fill-In-the-Middle) completion chunks.
+      description: |
+        Each Server-Sent Event has the form `data: <json>` where `<json>` is
+        either a `text_completion` streaming chunk or the literal string
+        `[DONE]` used as the stream terminator.
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      message:
+        oneOf:
+          - $ref: '#/components/messages/FimCompletionChunk'
+          - $ref: '#/components/messages/StreamDone'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+      description: |
+        DeepSeek API key passed as `Authorization: Bearer <DEEPSEEK_API_KEY>`
+        on the originating HTTP request that opens the SSE stream.
+
+  messages:
+    ChatCompletionChunk:
+      name: ChatCompletionChunk
+      title: Chat Completion Streaming Chunk
+      summary: |
+        A single `chat.completion.chunk` event emitted on the SSE stream while
+        a `/chat/completions` request with `stream=true` is in progress.
+      contentType: application/json
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/ChatCompletionChunk'
+      examples:
+        - name: ChatRoleChunk
+          summary: First delta in a stream, announcing the assistant role.
+          payload:
+            id: chatcmpl-abc123
+            object: chat.completion.chunk
+            created: 1748563200
+            model: deepseek-chat
+            system_fingerprint: fp_44709d6fcb
+            choices:
+              - index: 0
+                delta:
+                  role: assistant
+                  content: ''
+                finish_reason: null
+        - name: ChatContentDelta
+          summary: Incremental content token from `deepseek-chat`.
+          payload:
+            id: chatcmpl-abc123
+            object: chat.completion.chunk
+            created: 1748563200
+            model: deepseek-chat
+            system_fingerprint: fp_44709d6fcb
+            choices:
+              - index: 0
+                delta:
+                  content: 'Hello'
+                finish_reason: null
+        - name: ReasonerReasoningDelta
+          summary: Chain-of-thought delta from `deepseek-reasoner`.
+          payload:
+            id: chatcmpl-xyz789
+            object: chat.completion.chunk
+            created: 1748563205
+            model: deepseek-reasoner
+            system_fingerprint: fp_44709d6fcb
+            choices:
+              - index: 0
+                delta:
+                  reasoning_content: 'Let me think step by step.'
+                finish_reason: null
+        - name: ReasonerFinalContent
+          summary: Final answer delta after reasoning has completed.
+          payload:
+            id: chatcmpl-xyz789
+            object: chat.completion.chunk
+            created: 1748563205
+            model: deepseek-reasoner
+            system_fingerprint: fp_44709d6fcb
+            choices:
+              - index: 0
+                delta:
+                  content: 'The answer is 42.'
+                finish_reason: null
+        - name: ChatFinalChunkWithUsage
+          summary: Terminating chunk with `finish_reason` and usage details.
+          payload:
+            id: chatcmpl-abc123
+            object: chat.completion.chunk
+            created: 1748563200
+            model: deepseek-chat
+            system_fingerprint: fp_44709d6fcb
+            choices:
+              - index: 0
+                delta: {}
+                finish_reason: stop
+            usage:
+              prompt_tokens: 12
+              completion_tokens: 24
+              total_tokens: 36
+              prompt_cache_hit_tokens: 0
+              prompt_cache_miss_tokens: 12
+
+    FimCompletionChunk:
+      name: FimCompletionChunk
+      title: FIM Completion Streaming Chunk
+      summary: |
+        A single streaming chunk emitted on the SSE stream while a
+        `/beta/completions` (Fill-In-the-Middle) request with `stream=true`
+        is in progress.
+      contentType: application/json
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/FimCompletionChunk'
+      examples:
+        - name: FimTextDelta
+          summary: Incremental text fragment from a FIM completion.
+          payload:
+            id: cmpl-fim-abc
+            object: text_completion
+            created: 1748563300
+            model: deepseek-chat
+            choices:
+              - index: 0
+                text: '    return a + b'
+                finish_reason: null
+                logprobs: null
+        - name: FimFinalChunkWithUsage
+          summary: Terminating chunk with `finish_reason` and usage details.
+          payload:
+            id: cmpl-fim-abc
+            object: text_completion
+            created: 1748563300
+            model: deepseek-chat
+            choices:
+              - index: 0
+                text: ''
+                finish_reason: stop
+                logprobs: null
+            usage:
+              prompt_tokens: 8
+              completion_tokens: 16
+              total_tokens: 24
+              prompt_cache_hit_tokens: 0
+              prompt_cache_miss_tokens: 8
+
+    StreamDone:
+      name: StreamDone
+      title: SSE Stream Terminator
+      summary: |
+        Sentinel event marking the end of the SSE stream. The raw SSE line
+        is `data: [DONE]`. After this event the server closes the response
+        body.
+      contentType: text/plain
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/StreamDone'
+      examples:
+        - name: Done
+          summary: Stream terminator emitted after all data chunks.
+          payload: '[DONE]'
+
+  schemas:
+    ChatCompletionChunk:
+      type: object
+      description: |
+        A streaming chunk of a chat completion response. Returned by
+        `POST /chat/completions` when `stream` is set to `true`. The shape
+        mirrors the OpenAI Chat Completions streaming chunk and adds DeepSeek
+        specific fields (`reasoning_content` for `deepseek-reasoner`, and
+        prompt cache hit / miss counters on the terminal `usage` object).
+      required:
+        - id
+        - object
+        - created
+        - model
+        - choices
+      properties:
+        id:
+          type: string
+          description: |
+            Unique identifier for the chat completion. The same `id` is shared
+            across every chunk of a single streamed response.
+        object:
+          type: string
+          enum:
+            - chat.completion.chunk
+          description: Object type. Always `chat.completion.chunk` for streamed events.
+        created:
+          type: integer
+          format: int64
+          description: |
+            Unix timestamp (seconds) when the completion was created. Identical
+            across every chunk of a single streamed response.
+        model:
+          type: string
+          description: |
+            Identifier of the model that produced the chunk
+            (for example `deepseek-chat` or `deepseek-reasoner`).
+        system_fingerprint:
+          type: string
+          description: Backend configuration fingerprint.
+        choices:
+          type: array
+          description: Array of streamed choice deltas.
+          items:
+            $ref: '#/components/schemas/ChatCompletionChunkChoice'
+        usage:
+          description: |
+            Token usage details. Only populated on the terminal data chunk
+            (immediately before `[DONE]`) when the request was sent with
+            `stream_options.include_usage = true`. Null on intermediate chunks.
+          oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ChatCompletionUsage'
+
+    ChatCompletionChunkChoice:
+      type: object
+      required:
+        - index
+        - delta
+      properties:
+        index:
+          type: integer
+          description: Index of this choice in the `choices` array.
+        delta:
+          $ref: '#/components/schemas/ChatCompletionDelta'
+        finish_reason:
+          description: |
+            Reason the model stopped generating tokens for this choice. Null
+            on all chunks except the final delta for the choice.
+          oneOf:
+            - type: 'null'
+            - type: string
+              enum:
+                - stop
+                - length
+                - content_filter
+                - tool_calls
+                - insufficient_system_resource
+        logprobs:
+          description: |
+            Log-probability information for the streamed tokens. Present only
+            when the originating request specified `logprobs: true`.
+          oneOf:
+            - type: 'null'
+            - type: object
+
+    ChatCompletionDelta:
+      type: object
+      description: |
+        Incremental update applied to the assistant message for this choice.
+        Fields are only present on chunks that contribute new information.
+      properties:
+        role:
+          type: string
+          enum:
+            - assistant
+          description: |
+            Role of the streamed message. Emitted on the first delta of a
+            streamed response.
+        content:
+          type: string
+          nullable: true
+          description: |
+            Incremental fragment of the final assistant content. For
+            `deepseek-reasoner` this is emitted only after the
+            `reasoning_content` phase completes.
+        reasoning_content:
+          type: string
+          nullable: true
+          description: |
+            Incremental fragment of the assistant's Chain of Thought. Emitted
+            only by the `deepseek-reasoner` model during its reasoning phase.
+            This field is output-only - including `reasoning_content` in a
+            subsequent request's input messages returns a 400 error.
+        tool_calls:
+          type: array
+          description: |
+            Incremental tool call fragments. Each entry mirrors the
+            non-streamed `tool_calls` shape (`id`, `type: "function"`,
+            `function: { name, arguments }`) with `arguments` streamed as a
+            growing JSON string.
+          items:
+            type: object
+
+    ChatCompletionUsage:
+      type: object
+      description: Token usage details for the completed streamed response.
+      required:
+        - prompt_tokens
+        - completion_tokens
+        - total_tokens
+      properties:
+        prompt_tokens:
+          type: integer
+          description: Number of tokens in the prompt.
+        completion_tokens:
+          type: integer
+          description: Number of tokens in the generated completion.
+        total_tokens:
+          type: integer
+          description: Sum of `prompt_tokens` and `completion_tokens`.
+        prompt_cache_hit_tokens:
+          type: integer
+          description: |
+            Number of prompt tokens served from DeepSeek's context cache.
+        prompt_cache_miss_tokens:
+          type: integer
+          description: |
+            Number of prompt tokens that missed the context cache and were
+            processed fresh.
+        completion_tokens_details:
+          type: object
+          description: Detailed breakdown of completion tokens.
+          properties:
+            reasoning_tokens:
+              type: integer
+              description: |
+                Number of tokens consumed by the model's reasoning
+                (Chain of Thought) phase. Populated for `deepseek-reasoner`.
+
+    FimCompletionChunk:
+      type: object
+      description: |
+        Streaming chunk for the Fill-In-the-Middle (FIM) completions endpoint
+        at `POST /beta/completions`. Follows the OpenAI legacy completions
+        stream shape.
+      required:
+        - id
+        - object
+        - created
+        - model
+        - choices
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the FIM completion.
+        object:
+          type: string
+          enum:
+            - text_completion
+          description: Object type. Always `text_completion` for FIM stream chunks.
+        created:
+          type: integer
+          format: int64
+          description: Unix timestamp (seconds) when the completion was created.
+        model:
+          type: string
+          description: Identifier of the model that produced the chunk.
+        choices:
+          type: array
+          description: Array of streamed FIM completion choices.
+          items:
+            $ref: '#/components/schemas/FimCompletionChunkChoice'
+        usage:
+          description: |
+            Token usage details. Only populated on the terminal data chunk
+            (immediately before `[DONE]`) when the request was sent with
+            `stream_options.include_usage = true`. Null on intermediate chunks.
+          oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/ChatCompletionUsage'
+
+    FimCompletionChunkChoice:
+      type: object
+      required:
+        - index
+        - text
+      properties:
+        index:
+          type: integer
+          description: Index of this choice in the `choices` array.
+        text:
+          type: string
+          description: Incremental text fragment generated by the model.
+        finish_reason:
+          description: |
+            Reason the model stopped generating tokens for this choice. Null
+            on all chunks except the final delta for the choice.
+          oneOf:
+            - type: 'null'
+            - type: string
+              enum:
+                - stop
+                - length
+                - content_filter
+                - insufficient_system_resource
+        logprobs:
+          description: |
+            Token log-probability information. Present only when the
+            originating request specified `logprobs`.
+          oneOf:
+            - type: 'null'
+            - type: object
+
+    StreamDone:
+      type: string
+      description: |
+        Literal string `[DONE]` emitted as the final SSE data line. Indicates
+        the stream is closed and no further chunks will follow.
+      enum:
+        - '[DONE]'
