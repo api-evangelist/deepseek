@@ -1,10 +1,11 @@
 aid: deepseek
 name: DeepSeek
 url: https://raw.githubusercontent.com/api-evangelist/deepseek/refs/heads/main/apis.yml
-description: DeepSeek is an artificial intelligence company that provides advanced large language models accessible through
-  an API that is compatible with the OpenAI and Anthropic SDKs. The DeepSeek API offers chat completions, fill-in-the-middle
-  completions, function calling, JSON output, streaming, multi-turn conversations, context caching, and a thinking/reasoning
-  mode for complex problem solving.
+description: >-
+  DeepSeek is an artificial intelligence company that provides advanced large language models accessible through an API
+  that is compatible with the OpenAI and Anthropic SDKs. The DeepSeek API offers chat completions, fill-in-the-middle
+  completions, function calling, JSON output, streaming, multi-turn conversations, context caching, and a
+  thinking/reasoning mode for complex problem solving.
 kind: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
@@ -24,99 +25,95 @@ modified: '2026-05-29'
 apis:
   - aid: deepseek:deepseek-chat-completion-api
     name: DeepSeek Chat Completion API
-    description: Creates a model response for a given chat conversation. Supports the deepseek-chat and deepseek-reasoner models
-      with options for tool calling, JSON output, streaming, temperature, top-p, frequency and presence penalties, and stop
-      sequences. Compatible with the OpenAI Chat Completions request and response shapes.
+    description: >-
+      Creates a model response for a given chat conversation. Supports the deepseek-chat and deepseek-reasoner models
+      with options for tool calling, JSON output, streaming, temperature, top-p, frequency and presence penalties, and
+      stop sequences. Compatible with the OpenAI Chat Completions request and response shapes.
     humanURL: https://api-docs.deepseek.com/api/create-chat-completion
     baseURL: https://api.deepseek.com
     tags:
-    - AI
-    - Artificial Intelligence
-    - Chat
-    - Chat Completion
-    - LLM
+      - AI
+      - Artificial Intelligence
+      - Chat
+      - Chat Completion
+      - LLM
     properties:
-    - type: Documentation
-      url: https://api-docs.deepseek.com/api/create-chat-completion
-    - type: OpenAPI
-      url: openapi/deepseek-chat-completion-api-openapi.yml
-    - type: AsyncAPI
-      url: asyncapi/deepseek-asyncapi.yml
-    - type: Rules
-      url: rules/deepseek-chat-completion-api-rules.yml
-    - type: Capabilities
-      url: capabilities/deepseek-chat-completion-api-capabilities.yml
-    - type: NaftikoCapability
-      url: capabilities/chat-completion-chat.yaml
+      - type: Documentation
+        url: https://api-docs.deepseek.com/api/create-chat-completion
+      - type: OpenAPI
+        url: openapi/deepseek-chat-completion-api-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/deepseek-asyncapi.yml
+      - type: Rules
+        url: rules/deepseek-chat-completion-api-rules.yml
+      - type: Capabilities
+        url: capabilities/deepseek-chat-completion-api-capabilities.yml
   - aid: deepseek:deepseek-fim-completion
     name: DeepSeek Fill-In-The-Middle (FIM) Completion API
-    description: Beta endpoint that performs fill-in-the-middle completions where a prompt and an optional suffix are provided
-      and the model fills the gap. Useful for code completion and inline code generation tasks.
+    description: >-
+      Beta endpoint that performs fill-in-the-middle completions where a prompt and an optional suffix are provided and
+      the model fills the gap. Useful for code completion and inline code generation tasks.
     humanURL: https://api-docs.deepseek.com/guides/fim_completion
     baseURL: https://api.deepseek.com/beta
     tags:
-    - AI
-    - Artificial Intelligence
-    - Code Completion
-    - Fill-In-The-Middle
-    - FIM
+      - AI
+      - Artificial Intelligence
+      - Code Completion
+      - Fill-In-The-Middle
+      - FIM
     properties:
-    - type: Documentation
-      url: https://api-docs.deepseek.com/guides/fim_completion
-    - type: OpenAPI
-      url: openapi/deepseek-fim-completion-openapi.yml
-    - type: AsyncAPI
-      url: asyncapi/deepseek-asyncapi.yml
-    - type: Rules
-      url: rules/deepseek-fim-completion-rules.yml
-    - type: Capabilities
-      url: capabilities/deepseek-fim-completion-capabilities.yml
-    - type: NaftikoCapability
-      url: capabilities/fim-completion-completions.yaml
+      - type: Documentation
+        url: https://api-docs.deepseek.com/guides/fim_completion
+      - type: OpenAPI
+        url: openapi/deepseek-fim-completion-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/deepseek-asyncapi.yml
+      - type: Rules
+        url: rules/deepseek-fim-completion-rules.yml
+      - type: Capabilities
+        url: capabilities/deepseek-fim-completion-capabilities.yml
   - aid: deepseek:deepseek-lists-models-api
     name: DeepSeek List Models API
-    description: Lists the currently available DeepSeek models, providing basic information about each one such as the model
+    description: >-
+      Lists the currently available DeepSeek models, providing basic information about each one such as the model
       identifier, owner, and availability.
     humanURL: https://api-docs.deepseek.com/api/list-models
     baseURL: https://api.deepseek.com
     tags:
-    - AI
-    - Artificial Intelligence
-    - Models
+      - AI
+      - Artificial Intelligence
+      - Models
     properties:
-    - type: Documentation
-      url: https://api-docs.deepseek.com/api/list-models
-    - type: OpenAPI
-      url: openapi/deepseek-lists-models-api-openapi.yml
-    - type: Rules
-      url: rules/deepseek-lists-models-api-rules.yml
-    - type: Capabilities
-      url: capabilities/deepseek-lists-models-api-capabilities.yml
-    - type: NaftikoCapability
-      url: capabilities/lists-models-models.yaml
+      - type: Documentation
+        url: https://api-docs.deepseek.com/api/list-models
+      - type: OpenAPI
+        url: openapi/deepseek-lists-models-api-openapi.yml
+      - type: Rules
+        url: rules/deepseek-lists-models-api-rules.yml
+      - type: Capabilities
+        url: capabilities/deepseek-lists-models-api-capabilities.yml
   - aid: deepseek:deepseek-user-balance-api
     name: DeepSeek User Balance API
-    description: Returns the current account balance for the authenticated DeepSeek user, including available credit and currency.
+    description: >-
+      Returns the current account balance for the authenticated DeepSeek user, including available credit and currency.
       Useful for monitoring spend and gating workloads programmatically.
     humanURL: https://api-docs.deepseek.com/api/get-user-balance
     baseURL: https://api.deepseek.com
     tags:
-    - AI
-    - Artificial Intelligence
-    - Balance
-    - Billing
-    - Pricing
+      - AI
+      - Artificial Intelligence
+      - Balance
+      - Billing
+      - Pricing
     properties:
-    - type: Documentation
-      url: https://api-docs.deepseek.com/api/get-user-balance
-    - type: OpenAPI
-      url: openapi/deepseek-user-balance-api-openapi.yml
-    - type: Rules
-      url: rules/deepseek-user-balance-api-rules.yml
-    - type: Capabilities
-      url: capabilities/deepseek-user-balance-api-capabilities.yml
-    - type: NaftikoCapability
-      url: capabilities/user-balance-user.yaml
+      - type: Documentation
+        url: https://api-docs.deepseek.com/api/get-user-balance
+      - type: OpenAPI
+        url: openapi/deepseek-user-balance-api-openapi.yml
+      - type: Rules
+        url: rules/deepseek-user-balance-api-rules.yml
+      - type: Capabilities
+        url: capabilities/deepseek-user-balance-api-capabilities.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/deepseek-ai
