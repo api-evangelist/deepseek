@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DeepSeek FIM Completion",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Completions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DeepSeek Create FIM Completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deepseek.com/beta/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a fill-in-the-middle completion for a given prompt using DeepSeek models."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

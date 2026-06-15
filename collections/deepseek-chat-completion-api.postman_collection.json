@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "3ac6b7a1-c96a-41b8-a981-0c4fffec79fe",
+      "name": "Chat",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0c6b066-e83b-4f8b-b1ba-f3f540bec54e",
+          "name": "DeepSeek Create Chat Completion",
+          "request": {
+            "name": "DeepSeek Create Chat Completion",
+            "description": {
+              "content": "Creates a model response for the given chat conversation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messages\": [\n    {\n      \"content\": \"<string>\",\n      \"role\": \"<string>\"\n    },\n    {\n      \"content\": \"<string>\",\n      \"role\": \"<string>\"\n    }\n  ],\n  \"model\": \"<string>\",\n  \"frequency_penalty\": 0,\n  \"max_tokens\": 4096,\n  \"presence_penalty\": 0,\n  \"response_format\": {\n    \"type\": \"<string>\"\n  },\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<object>\",\n  \"logprobs\": \"<boolean>\",\n  \"top_logprobs\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0a6fe21-78c7-4890-bd35-e3445d9c54bf",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messages\": [\n    {\n      \"content\": \"<string>\",\n      \"role\": \"<string>\"\n    },\n    {\n      \"content\": \"<string>\",\n      \"role\": \"<string>\"\n    }\n  ],\n  \"model\": \"<string>\",\n  \"frequency_penalty\": 0,\n  \"max_tokens\": 4096,\n  \"presence_penalty\": 0,\n  \"response_format\": {\n    \"type\": \"<string>\"\n  },\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<object>\",\n  \"logprobs\": \"<boolean>\",\n  \"top_logprobs\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"choices\": [],\n  \"created\": 2502,\n  \"model\": \"string\",\n  \"system_fingerprint\": \"string\",\n  \"object\": \"chat.completion\",\n  \"usage\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deepseek.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5cbe9c6e-ae26-430b-8a09-c3abc251829c",
+    "name": "DeepSeek Chat Completion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Creates a model response for the given chat conversation.",
+      "type": "text/plain"
+    }
+  }
+}
