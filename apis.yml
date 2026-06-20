@@ -7,7 +7,7 @@ description: >-
   completions, function calling, JSON output, streaming, multi-turn conversations, context caching, and a
   thinking/reasoning mode for complex problem solving.
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 position: Consuming
 specificationVersion: '0.19'
