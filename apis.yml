@@ -127,7 +127,7 @@ common:
     url: https://api-docs.deepseek.com/quick_start/token_usage
   - type: RateLimits
     url: https://api-docs.deepseek.com/quick_start/rate_limit
-  - type: Errors
+  - type: ErrorCodes
     url: https://api-docs.deepseek.com/quick_start/error_codes
   - type: StatusPage
     url: https://status.deepseek.com/
