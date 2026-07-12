@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/deepseek-lists-models-api-openapi.yml, openapi/deepseek-user-balance-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/deepseek-lists-models-api-openapi.yml
+  - openapi/deepseek-user-balance-api-openapi.yml

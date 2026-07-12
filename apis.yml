@@ -115,6 +115,10 @@ apis:
       - type: Capabilities
         url: capabilities/deepseek-user-balance-api-capabilities.yml
 common:
+  - type: DomainSecurity
+    url: security/deepseek-domain-security.yml
+  - type: Authentication
+    url: authentication/deepseek-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/deepseek-ai
   - type: LinkedIn

@@ -1,0 +1,27 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.deepseek.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 25 23:59:59 2026 GMT
+  hsts: false
+- host: api-docs.deepseek.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 28 23:59:59 2026 GMT
+  hsts: false
+- host: api.deepseek.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 25 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: deepseek.com
+  dnssec: false
+  caa:
+  - d3bbv8sr76az5s.cloudfront.net.
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
