@@ -1,0 +1,75 @@
+# deepseek — AsyncAPI Spectral ruleset (strengthened)
+# Plain Spectral. Rules measured from this provider's own AsyncAPI event
+# conventions by strengthen_asyncapi.py, then self-validated against the spec.
+#
+# Provenance:
+#   - server-secure-protocol: 100% of servers already secure
+#   - server-security-defined: 2/2 servers
+#   - security-schemes: ['bearerAuth']
+#   - message-name-casing: pascal @ 100% (n=3)
+#   - payload-property-casing: snake @ 100% (n=44)
+#   - message-contenttype-defined: 100% adherence
+#   - message-payload-defined: 100% adherence
+extends:
+  - spectral:asyncapi
+rules:
+  server-secure-protocol:
+    description: Servers should use a secure protocol (this API's convention).
+    severity: error
+    given: $.servers[*].protocol
+    then:
+      function: pattern
+      functionOptions:
+        match: ^(amqps|https|ibmmq|jms|kafka-secure|mqtts|secure-mqtt|stomps|wss)$
+  server-security-defined:
+    description: Servers should declare their security requirements.
+    severity: warn
+    given: $.servers[*]
+    then:
+      field: security
+      function: truthy
+  security-schemes-defined:
+    description: Security schemes should be defined in components.
+    severity: warn
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
+  message-name-casing:
+    description: Message names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.messages
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  payload-property-casing:
+    description: Message payload properties should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  message-contenttype-defined:
+    description: Messages should declare a contentType (set on 100% of this API's messages).
+    severity: warn
+    given: $.components.messages[*]
+    then:
+      field: contentType
+      function: truthy
+  message-payload-defined:
+    description: Messages should define a payload schema (set on 100% of this API's messages).
+    severity: warn
+    given: $.components.messages[*]
+    then:
+      field: payload
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: truthy
