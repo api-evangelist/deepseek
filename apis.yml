@@ -115,6 +115,8 @@ apis:
       - type: Capabilities
         url: capabilities/deepseek-user-balance-api-capabilities.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/deepseek-agentic-access.yml
   - type: DomainSecurity
     url: security/deepseek-domain-security.yml
   - type: Authentication
