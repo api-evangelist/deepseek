@@ -1,19 +1,17 @@
 openapi: 3.1.0
 info:
-  title: DeepSeek Models API
-  description: >-
-    API for listing available models with basic information, including owner and
-    availability.
+  title: DeepSeek Completion Chat Models API
+  description: Creates a model response for the given chat conversation.
   version: 1.0.0
 servers:
-  - url: https://api.deepseek.com
+- url: https://api.deepseek.com
+tags:
+- name: Models
 paths:
   /models:
     get:
       summary: DeepSeek List Available Models
-      description: >-
-        Lists the currently available models and provides basic information
-        about each one.
+      description: Lists the currently available models and provides basic information about each one.
       operationId: listModels
       responses:
         '200':
@@ -23,23 +21,23 @@ paths:
               schema:
                 type: object
                 required:
-                  - object
-                  - data
+                - object
+                - data
                 properties:
                   object:
                     type: string
                     enum:
-                      - list
+                    - list
                     description: Type of the response object.
                   data:
                     type: array
                     items:
                       type: object
                       required:
-                        - id
-                        - name
-                        - owner
-                        - availability
+                      - id
+                      - name
+                      - owner
+                      - availability
                       properties:
                         id:
                           type: string
@@ -54,14 +52,6 @@ paths:
                           type: string
                           description: Availability status of the model.
       security:
-        - bearerAuth: []
+      - bearerAuth: []
       tags:
-        - Models
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-tags:
-  - name: Models
+      - Models

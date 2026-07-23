@@ -1,17 +1,17 @@
 openapi: 3.1.0
 info:
-  title: DeepSeek FIM Completion
-  description: The DeepSeek API uses an API format compatible with OpenAI.
+  title: DeepSeek Completion Chat Completions API
+  description: Creates a model response for the given chat conversation.
   version: 1.0.0
 servers:
-  - url: https://api.deepseek.com/beta
+- url: https://api.deepseek.com
+tags:
+- name: Completions
 paths:
   /completions:
     post:
       summary: DeepSeek Create FIM Completion
-      description: >-
-        Generates a fill-in-the-middle completion for a given prompt using
-        DeepSeek models.
+      description: Generates a fill-in-the-middle completion for a given prompt using DeepSeek models.
       operationId: createFIMCompletion
       requestBody:
         required: true
@@ -20,13 +20,13 @@ paths:
             schema:
               type: object
               required:
-                - model
-                - prompt
+              - model
+              - prompt
               properties:
                 model:
                   type: string
                   enum:
-                    - deepseek-chat
+                  - deepseek-chat
                   description: ID of the model to use.
                 prompt:
                   type: string
@@ -42,32 +42,29 @@ paths:
                   minimum: -2
                   maximum: 2
                   default: 0
-                  description: >
-                    Positive values penalize new tokens based on their
-                    frequency  in the text, reducing repetition.
+                  description: 'Positive values penalize new tokens based on their frequency  in the text, reducing repetition.
+
+                    '
                 logprobs:
                   type: integer
                   nullable: true
                   maximum: 20
-                  description: >
-                    Number of most likely tokens to return with log
-                    probabilities. The API will always return the log
-                    probability of the sampled token.
+                  description: 'Number of most likely tokens to return with log probabilities. The API will always return the log probability of the sampled token.
+
+                    '
                 max_tokens:
                   type: integer
                   nullable: true
-                  description: >-
-                    The maximum number of tokens that can be generated in the
-                    completion.
+                  description: The maximum number of tokens that can be generated in the completion.
                 presence_penalty:
                   type: number
                   nullable: true
                   minimum: -2
                   maximum: 2
                   default: 0
-                  description: >
-                    Positive values penalize new tokens that appear in the text,
-                    encouraging discussion of new topics.
+                  description: 'Positive values penalize new tokens that appear in the text, encouraging discussion of new topics.
+
+                    '
                 stop:
                   type: object
                   nullable: true
@@ -75,9 +72,9 @@ paths:
                 stream:
                   type: boolean
                   nullable: true
-                  description: >
-                    Whether to stream back partial progress. If set, tokens are
-                    sent  as server-sent events until completion.
+                  description: 'Whether to stream back partial progress. If set, tokens are sent  as server-sent events until completion.
+
+                    '
                 stream_options:
                   type: object
                   nullable: true
@@ -91,16 +88,15 @@ paths:
                   nullable: true
                   maximum: 2
                   default: 1
-                  description: >-
-                    Controls randomness in generation (higher values = more
-                    random).
+                  description: Controls randomness in generation (higher values = more random).
                 top_p:
                   type: number
                   nullable: true
                   maximum: 1
                   default: 1
-                  description: >
-                    Nucleus sampling parameter. Tokens are selected from the  top_p probability mass.
+                  description: 'Nucleus sampling parameter. Tokens are selected from the  top_p probability mass.
+
+                    '
       responses:
         '200':
           description: Successful completion.
@@ -109,11 +105,11 @@ paths:
               schema:
                 type: object
                 required:
-                  - id
-                  - choices
-                  - created
-                  - model
-                  - object
+                - id
+                - choices
+                - created
+                - model
+                - object
                 properties:
                   id:
                     type: string
@@ -136,12 +132,10 @@ paths:
                   object:
                     type: string
                     enum:
-                      - text_completion
+                    - text_completion
                     description: Object type of the response.
                   usage:
                     type: object
                     description: Details of token usage.
       tags:
-        - Completions
-tags:
-  - name: Completions
+      - Completions
