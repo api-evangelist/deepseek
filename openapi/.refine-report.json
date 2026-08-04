@@ -1,0 +1,20 @@
+{
+  "provider": "deepseek",
+  "sources": [
+    "deepseek-chat-api-openapi.yml",
+    "deepseek-completions-api-openapi.yml",
+    "deepseek-models-api-openapi.yml",
+    "deepseek-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "deepseek-chat-api-openapi.yml",
+    "deepseek-completions-api-openapi.yml",
+    "deepseek-models-api-openapi.yml",
+    "deepseek-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
