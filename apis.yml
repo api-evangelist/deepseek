@@ -52,26 +52,18 @@ apis:
     url: asyncapi/deepseek-asyncapi.yml
   - type: Rules
     url: rules/deepseek-chat-completion-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-chat-completion-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/guides/fim_completion
   - type: Rules
     url: rules/deepseek-fim-completion-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-fim-completion-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/list-models
   - type: Rules
     url: rules/deepseek-lists-models-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-lists-models-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/get-user-balance
   - type: Rules
     url: rules/deepseek-user-balance-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-user-balance-api-capabilities.yml
 - aid: deepseek:deepseek-completions-api
   name: DeepSeek Completions API
   description: The Completions API from DeepSeek — 1 operation(s) for completions.
@@ -88,26 +80,18 @@ apis:
     url: asyncapi/deepseek-asyncapi.yml
   - type: Rules
     url: rules/deepseek-chat-completion-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-chat-completion-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/guides/fim_completion
   - type: Rules
     url: rules/deepseek-fim-completion-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-fim-completion-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/list-models
   - type: Rules
     url: rules/deepseek-lists-models-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-lists-models-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/get-user-balance
   - type: Rules
     url: rules/deepseek-user-balance-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-user-balance-api-capabilities.yml
 - aid: deepseek:deepseek-models-api
   name: DeepSeek Models API
   description: The Models API from DeepSeek — 1 operation(s) for models.
@@ -124,26 +108,18 @@ apis:
     url: asyncapi/deepseek-asyncapi.yml
   - type: Rules
     url: rules/deepseek-chat-completion-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-chat-completion-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/guides/fim_completion
   - type: Rules
     url: rules/deepseek-fim-completion-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-fim-completion-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/list-models
   - type: Rules
     url: rules/deepseek-lists-models-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-lists-models-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/get-user-balance
   - type: Rules
     url: rules/deepseek-user-balance-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-user-balance-api-capabilities.yml
 - aid: deepseek:deepseek-user-api
   name: DeepSeek User API
   description: The User API from DeepSeek — 1 operation(s) for user.
@@ -160,26 +136,18 @@ apis:
     url: asyncapi/deepseek-asyncapi.yml
   - type: Rules
     url: rules/deepseek-chat-completion-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-chat-completion-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/guides/fim_completion
   - type: Rules
     url: rules/deepseek-fim-completion-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-fim-completion-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/list-models
   - type: Rules
     url: rules/deepseek-lists-models-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-lists-models-api-capabilities.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/get-user-balance
   - type: Rules
     url: rules/deepseek-user-balance-api-rules.yml
-  - type: Capabilities
-    url: capabilities/deepseek-user-balance-api-capabilities.yml
 common:
   - type: AgenticAccess
     url: agentic-access/deepseek-agentic-access.yml
