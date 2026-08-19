@@ -23,7 +23,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deepseek.png
 access: 3rd-Party
 position: Consuming
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
   - AI
   - Artificial Intelligence
