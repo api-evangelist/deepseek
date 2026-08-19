@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "66d87292-9461-40a6-b0ba-b8179b99676f",
+      "name": "Completions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33485e69-27b8-4956-89b2-8da07054db17",
+          "name": "DeepSeek Create FIM Completion",
+          "request": {
+            "name": "DeepSeek Create FIM Completion",
+            "description": {
+              "content": "Generates a fill-in-the-middle completion for a given prompt using DeepSeek models.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d0b7c30-5c04-4132-9f7a-624738ae1cf6",
+              "name": "Successful completion.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"choices\": [],\n  \"created\": 394,\n  \"model\": \"string\",\n  \"object\": \"text_completion\",\n  \"system_fingerprint\": \"string\",\n  \"usage\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deepseek.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7b261ea5-197f-44be-b95c-61be61e85671",
+    "name": "DeepSeek Completion Chat Completions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Creates a model response for the given chat conversation.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "item": [
+    {
+      "id": "5c1ebd80-1ad2-4ebd-bb5b-9e1afba375d0",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7cd100b-8eae-4b20-92eb-5cede1e37a66",
+          "name": "DeepSeek Get User Balance",
+          "request": {
+            "name": "DeepSeek Get User Balance",
+            "description": {
+              "content": "Retrieves the current balance information for a user, including availability for API calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0c71acac-9965-4811-a87f-f4bbf9bd4ead",
+              "name": "User balance information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_available\": true,\n  \"balance_infos\": [\n    {\n      \"type\": \"string\",\n      \"amount\": 4053.5662165510657,\n      \"currency\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"amount\": 7139.04218743126,\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deepseek.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f80cc549-a224-4f48-9067-f9dfdd5e5c44",
+    "name": "DeepSeek Completion Chat User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Creates a model response for the given chat conversation.",
+      "type": "text/plain"
+    }
+  }
+}
