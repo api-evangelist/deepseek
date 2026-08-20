@@ -25,6 +25,14 @@ access: 3rd-Party
 position: Consuming
 specificationVersion: '0.23'
 tags:
+  - Artificial Intelligence
+  - Chat
+  - Chat Completion
+  - LLM
+  - Large Language Models
+  - Reasoning
+  - Code Completion
+tags_raw:
   - AI
   - Artificial Intelligence
   - Chat
