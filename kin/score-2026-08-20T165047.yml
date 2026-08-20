@@ -1,0 +1,45 @@
+# Kin Score artifact — deepseek — 2026-08-20T165047
+# The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
+---
+kin_score:
+  slug: deepseek
+  schema_version: 0.12.0
+  scored_at: '2026-08-20'
+  run_ts: 2026-08-20T165047
+  composite: 42.7
+  band: developing
+  facets:
+    discoverability: 74.1
+    contract_quality: 63.3
+    governance: 26.5
+    operational_transparency: 23.7
+    developer_ergonomics: 21.4
+    commercial_clarity: 44.7
+    contract_governance: 26.5
+    access_clarity: 44.7
+  agent_readiness:
+    score: 33.8
+    band: agent-aware
+    dimensions:
+      spec_presence: true
+      agentic_access: derived
+      reversibility_documented: false
+      mcp_server: false
+      auth_clarity: true
+      idempotency: false
+      error_semantics: documented
+      openapi_examples: false
+      rate_limit_signal: documented
+      event_surface_described: derived
+      agent_skills: false
+      well_known_catalog: false
+      consent_identity: false
+      agent_card: false
+      dry_run_mode: false
+  provenance:
+    agentic_access: derived
+    contracts:
+      total: 4
+      derived: 0
+      coverage: 0.0
+      callable: 100.0
