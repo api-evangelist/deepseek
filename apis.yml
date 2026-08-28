@@ -7,6 +7,18 @@ description: >-
   completions, function calling, JSON output, streaming, multi-turn conversations, context caching, and a
   thinking/reasoning mode for complex problem solving.
 kind: company
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
