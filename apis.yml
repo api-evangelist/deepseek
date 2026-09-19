@@ -40,9 +40,8 @@ specificationVersion: '0.23'
 tags:
   - Artificial Intelligence
   - Chat
-  - Chat Completion
+  - Chat Completions
   - LLM
-  - Large Language Models
   - Reasoning
   - Code Completion
 tags_raw:
