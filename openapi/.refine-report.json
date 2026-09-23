@@ -1,10 +1,10 @@
 {
   "provider": "deepseek",
   "sources": [
-    "deepseek-chat-api-openapi.yml",
-    "deepseek-completions-api-openapi.yml",
-    "deepseek-models-api-openapi.yml",
-    "deepseek-user-api-openapi.yml"
+    "_original/deepseek-chat-completion-api-openapi.yml",
+    "_original/deepseek-fim-completion-openapi.yml",
+    "_original/deepseek-lists-models-api-openapi.yml",
+    "_original/deepseek-user-balance-api-openapi.yml"
   ],
   "outputs": [
     "deepseek-chat-api-openapi.yml",
@@ -15,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "deepseek-chat-completion-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "deepseek-fim-completion-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "deepseek-lists-models-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "deepseek-user-balance-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "deepseek-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deepseek-completions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deepseek-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deepseek-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
