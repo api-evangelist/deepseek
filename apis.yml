@@ -37,6 +37,9 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deepseek.p
 access: 3rd-Party
 position: Consuming
 specificationVersion: '0.23'
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-25
 tags:
   - Artificial Intelligence
   - Chat
