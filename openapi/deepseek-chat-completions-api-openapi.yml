@@ -6,7 +6,7 @@ info:
 servers:
 - url: https://api.deepseek.com
 tags:
-- name: Chat
+- name: Chat Completions
 paths:
   /chat/completions:
     post:
@@ -169,4 +169,4 @@ paths:
                     type: object
                     description: Token usage details.
       tags:
-      - Chat
+      - Chat Completions

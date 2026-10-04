@@ -61,34 +61,6 @@ tags_raw:
 created: '2025-01-27'
 modified: '2026-05-29'
 apis:
-- aid: deepseek:deepseek-chat-api
-  name: DeepSeek Chat API
-  description: The Chat API from DeepSeek — 1 operation(s) for chat.
-  humanURL: https://api-docs.deepseek.com/api/create-chat-completion
-  baseURL: https://api.deepseek.com
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/deepseek-chat-api-openapi.yml
-  - type: Documentation
-    url: https://api-docs.deepseek.com/api/create-chat-completion
-  - type: AsyncAPI
-    url: asyncapi/deepseek-asyncapi.yml
-  - type: Rules
-    url: rules/deepseek-chat-completion-api-rules.yml
-  - type: Documentation
-    url: https://api-docs.deepseek.com/guides/fim_completion
-  - type: Rules
-    url: rules/deepseek-fim-completion-rules.yml
-  - type: Documentation
-    url: https://api-docs.deepseek.com/api/list-models
-  - type: Rules
-    url: rules/deepseek-lists-models-api-rules.yml
-  - type: Documentation
-    url: https://api-docs.deepseek.com/api/get-user-balance
-  - type: Rules
-    url: rules/deepseek-user-balance-api-rules.yml
 - aid: deepseek:deepseek-completions-api
   name: DeepSeek Completions API
   description: The Completions API from DeepSeek — 1 operation(s) for completions.
@@ -155,6 +127,34 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/deepseek-user-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.deepseek.com/api/create-chat-completion
+  - type: AsyncAPI
+    url: asyncapi/deepseek-asyncapi.yml
+  - type: Rules
+    url: rules/deepseek-chat-completion-api-rules.yml
+  - type: Documentation
+    url: https://api-docs.deepseek.com/guides/fim_completion
+  - type: Rules
+    url: rules/deepseek-fim-completion-rules.yml
+  - type: Documentation
+    url: https://api-docs.deepseek.com/api/list-models
+  - type: Rules
+    url: rules/deepseek-lists-models-api-rules.yml
+  - type: Documentation
+    url: https://api-docs.deepseek.com/api/get-user-balance
+  - type: Rules
+    url: rules/deepseek-user-balance-api-rules.yml
+- aid: deepseek:deepseek-chat-completions-api
+  name: DeepSeek Chat Completions API
+  description: The Chat Completions API from DeepSeek — 1 operation(s) for chat completions.
+  humanURL: https://api-docs.deepseek.com/api/create-chat-completion
+  baseURL: https://api.deepseek.com
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/deepseek-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://api-docs.deepseek.com/api/create-chat-completion
   - type: AsyncAPI
