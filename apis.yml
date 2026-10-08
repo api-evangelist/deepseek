@@ -174,6 +174,10 @@ apis:
   - type: Rules
     url: rules/deepseek-user-balance-api-rules.yml
 common:
+  - type: Plans
+    url: plans/deepseek-plans-pricing.yml
+  - type: FinOps
+    url: finops/deepseek-finops.yml
   - url: https://www.deepseek.com/news/
     type: Blog
   - type: AgenticAccess
