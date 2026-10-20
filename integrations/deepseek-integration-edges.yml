@@ -59,7 +59,7 @@ edges:
   - provider
   router_signals:
     provider:
-      models: 4
+      models: 5
       router_ids:
       - deepseek
       tools_share: 1.0
@@ -119,7 +119,7 @@ edges:
     note: 'deepseek declares OpenAI compatibility: ''description: The DeepSeek API uses an API format compatible
       with OpenAI.'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
 - partner_name: Zapier
@@ -155,7 +155,7 @@ edges:
   channel: open-source-node
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/deepseek
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/deepseek
   category: null
   contract_reference:
     register: Pipedream components (PipedreamHQ/pipedream components/)
@@ -180,6 +180,7 @@ checked:
 - https://developers.cloudflare.com/ai-gateway/usage/providers/
 - https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://github.com/Portkey-AI/gateway/tree/main/src/providers
 - https://openrouter.ai/api/v1/models
 - https://zapier.com/api/v4/apps/

@@ -75,7 +75,7 @@
     note: 'deepseek declares OpenAI compatibility: ''description: The DeepSeek API uses an API format compatible
       with OpenAI.'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: deepseek-zapier
@@ -110,7 +110,7 @@
   type: marketplace
   marketplace: pipedream-components
   channel: open-source-node
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/deepseek
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/deepseek
   source: edge
   relationship: ipaas-bridge
   contract_reference:
