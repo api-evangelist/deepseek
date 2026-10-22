@@ -241,6 +241,115 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: Raycast
+  partner: raycast
+  partner_match: domain
+  partner_url: https://www.raycast.com
+  partner_domain: raycast.com
+  type: marketplace
+  marketplace: raycast-store
+  channel: connector-listing
+  relationship: connector-coverage
+  evidence: https://www.raycast.com/ViGeng/deepseeker
+  app: Deepseek Quick Actions
+  category: Raycast Store extension (community wrapper)
+  listing_count: 1
+  contract_reference:
+    register: Raycast Store (raycast/extensions monorepo + store_listings JSON)
+    spec_file: null
+    role: raycast-community-wrapper
+    builder: community
+    authors:
+    - ViGeng
+    matched_domain: deepseek.com
+    matched_by: domain
+    monorepo_commit: 84f9ac51336a8c69f70974a75bc067c0feae3658
+    listings:
+    - title: Deepseek Quick Actions
+      store_url: https://www.raycast.com/ViGeng/deepseeker
+      installs: 11733
+      categories:
+      - Productivity
+      - Developer Tools
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/deepseeker/
+      author: ViGeng
+    categories:
+    - Developer Tools
+    - Productivity
+    identity_note: the extension's own source calls a host on the product's domain AND its title / package name
+      passes partner_link's name check; built by Raycast community developers, not the vendor
+    signal_note: 'coverage: Raycast''s store reaches the product through community-built extensions; one edge per
+      (product, store); install / listing counts are context, never counted'
+    detected_by: sweep-raycast-store-extensions.py
+    detected: '2026-10-22'
+  detected_by: sweep-raycast-store-extensions.py
+  first_seen: '2026-10-22'
+  direction: partner-built
+- partner_name: Obsidian
+  partner: obsidian
+  partner_match: aggregator
+  type: marketplace
+  marketplace: obsidian-community-plugins
+  channel: community-plugin
+  relationship: connector-listing
+  direction: third-party
+  evidence: https://github.com/tarslab/obsidian-tars
+  app: Tars
+  listing_count: 27
+  category: Obsidian community plugin
+  partner_url: https://obsidian.md/plugins
+  contract_reference:
+    register: Obsidian community-plugins.json (obsidianmd/obsidian-releases@793b5211) + plugin repo README / manifest
+      / source
+    spec_file: null
+    role: obsidian-community-plugin:community
+    registered_name: ae86jack
+    register_id: https://github.com/tarslab/obsidian-tars
+    matched_domain: deepseek.com
+    matched_by: domain+name-in-listing
+    matched_where: README
+    matched_host: www.deepseek.com
+    builder: community
+    plugins:
+    - tars
+    - deepseek-ai-assistant
+    - aibrowser-chat
+    - llm-test-gen
+    - istart-note-ai
+    - ratel-vault
+    - deepseek-translator
+    - bilingual-translator
+    - notebrain
+    - llm-translate
+    - lapis-lazuli-ai-assistant
+    - knowledge-brain
+    - kuaifanyi
+    - vault-agent
+    - harness-like
+    downloads_context: 81070
+    signal_note: 'ONE edge per provider: a community plugin names the provider in its name/description AND carries
+      the provider''s domain or API host in its README or source. Builder is a named community author (not the provider).
+      Plugin and download counts are context, never counted.'
+    detected_by: sweep-obsidian-community-plugins.py
+    detected: '2026-10-22'
+  detected_by: sweep-obsidian-community-plugins.py
+  first_seen: '2026-10-22'
+  apps:
+  - Tars
+  - deepseek-ai-assistant
+  - OmniChat
+  - LLM Test Generator
+  - IStart-Note-AI
+  - Ratel
+  - Multi Translator
+  - Bilingual Translator
+  - Notebrain
+  - LLM Translate
+  - Lapis Lazuli AI Assistant
+  - Knowledge Brain
+  - Kuaifanyi
+  - Vault Agent
+  - Harness Like
 generated: '2026-10-13'
 method: searched
 checked:
@@ -258,6 +367,12 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions
+- https://www.raycast.com/api/v1/store_listings
+- https://raw.githubusercontent.com/<repo>/HEAD/README.md
+- https://raw.githubusercontent.com/<repo>/HEAD/manifest.json
+- https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugin-stats.json
+- https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugins.json
 source:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://zapier.com/api/v4/apps/
