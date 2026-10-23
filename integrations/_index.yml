@@ -288,3 +288,37 @@
     signal_note: one edge per (provider, platform); triggers, actions and applet counts are context, never read
   status: not-a-workflow
   arazzo: null
+- slug: deepseek-arch-user-repository-aur
+  label: Arch User Repository (AUR)
+  partner_name: Arch User Repository (AUR)
+  category: official CLI (Arch User Repository (AUR))
+  type: register
+  channel: package-registry
+  evidence: https://aur.archlinux.org/packages/deepseek-harness-git
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Arch User Repository (AUR) (public package index)
+    spec_file: null
+    packages:
+    - name: deepseek-harness-git
+      kind: aur
+      version: 0.1.5.alpha.1.r16089.g5dda764-2
+      released: '2026-09-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/deepseek-harness-git
+      upstream: https://github.com/deepseek-ai/deepseek-harness
+      cli: 'AUR description: DeepSeek Harness CLI and agent harness (git)'
+      repo_leg: github-org:deepseek-ai
+      publisher_leg: artifact-github-org:deepseek-ai
+      matched_by: github-org
+    current: true
+    signal_note: 'the provider''s own command-line tool packaged for Arch Linux (community-maintained PKGBUILD whose
+      upstream and source artifact are the provider''s): distribution, not an integration; lapsed = flagged out-of-date
+      or not updated in 24 months'
+    detected_by: sweep-aur-vendor-cli-packages.py
+    detected: '2026-10-23'
+  status: not-a-workflow
+  arazzo: null
