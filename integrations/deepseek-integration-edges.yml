@@ -409,6 +409,39 @@ edges:
     detected: '2026-10-23'
   detected_by: sweep-aur-vendor-cli-packages.py
   first_seen: '2026-10-23'
+- partner_name: Hugging Face (hugging-face-hub)
+  partner: hugging-face
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: hugging-face-hub
+  evidence: https://huggingface.co/deepseek-ai
+  mirror_of: hugging-face/integrations/hugging-face-integration-edges.yml
+  apps:
+  - deepseek-ai/DeepSeek-ProverBench
+  - deepseek-ai/DeepSeek-Prover-V1
+  - deepseek-ai/DeepSeek-V3.2
+  - deepseek-ai/DeepSeek-V4-Flash-0731
+  - deepseek-ai/DeepSeek-OCR
+  - deepseek-ai/DeepSeek-V4.1-Flash
+  - deepseek-ai/DeepSeek-R1
+  - deepseek-ai/DeepSeek-V3
+  - deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+  - deepseek-ai/DeepSeek-V4-Flash
+  - deepseek-ai/Janus-Pro-7B
+  - deepseek-ai/deepseek-vl2-small
+  - deepseek-ai/deepseek-coder-33b-instruct
+  - deepseek-ai/JanusFlow-1.3B
+  - deepseek-ai/Janus-1.3B
+  listing_count: 3
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Hugging Face Hub datasets
+  badges:
+  - Verified publisher (Hugging Face verified organisation)
 generated: '2026-10-13'
 method: searched
 checked:
@@ -438,6 +471,7 @@ checked:
 - https://aur.archlinux.org/cgit/aur.git/tree/.SRCINFO
 - https://aur.archlinux.org/packages-meta-ext-v1.json.gz
 - https://aur.archlinux.org/rpc/v5/info
+- hugging-face/integrations/hugging-face-integration-edges.yml
 source:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://zapier.com/api/v4/apps/
