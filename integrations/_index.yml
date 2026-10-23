@@ -263,3 +263,28 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: deepseek-ifttt
+  label: IFTTT
+  partner: ifttt
+  partner_name: IFTTT
+  type: marketplace
+  marketplace: ifttt-services
+  channel: ipaas-listing
+  evidence: https://ifttt.com/deepseek
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: IFTTT service directory (ifttt.com/explore/services; ifttt.com/<service>)
+    spec_file: null
+    role: ipaas-connector:ifttt
+    registered_name: DeepSeek
+    matched_domain: deepseek.com
+    matched_by: domain
+    app_slug: deepseek
+    ifttt_category: AI
+    builder: unknown (the service page does not say who built it)
+    detected_by: sweep-ifttt-services.py
+    detected: '2026-10-23'
+    signal_note: one edge per (provider, platform); triggers, actions and applet counts are context, never read
+  status: not-a-workflow
+  arazzo: null
