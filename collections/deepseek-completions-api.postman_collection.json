@@ -1,32 +1,26 @@
 {
+  "info": {
+    "_postman_id": "db3c2e65-c6cc-4131-98d1-39a5f48d9c21",
+    "name": "DeepSeek FIM Completion Completions API",
+    "description": "The DeepSeek API uses an API format compatible with OpenAI.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:06.000Z",
+    "updatedAt": "2026-10-22T01:41:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-db3c2e65-c6cc-4131-98d1-39a5f48d9c21"
+  },
   "item": [
     {
-      "id": "66d87292-9461-40a6-b0ba-b8179b99676f",
-      "name": "Completions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "completions",
       "item": [
         {
-          "id": "33485e69-27b8-4956-89b2-8da07054db17",
           "name": "DeepSeek Create FIM Completion",
+          "id": "b66a816a-343d-4ef0-9483-655f6bf2ab7a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "DeepSeek Create FIM Completion",
-            "description": {
-              "content": "Generates a fill-in-the-middle completion for a given prompt using DeepSeek models.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "completions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -37,87 +31,95 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"model\": \"<string>\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
+              "raw": "{\n  \"model\": \"deepseek-chat\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": {},\n  \"stream\": \"<boolean>\",\n  \"stream_options\": {},\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/completions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "completions"
+              ]
+            },
+            "description": "Generates a fill-in-the-middle completion for a given prompt using DeepSeek models."
           },
           "response": [
             {
-              "id": "8d0b7c30-5c04-4132-9f7a-624738ae1cf6",
+              "id": "e29a73c8-153b-463b-9c61-d303c3a4c49b",
               "name": "Successful completion.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "completions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"model\": \"<string>\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": \"<object>\",\n  \"stream\": \"<boolean>\",\n  \"stream_options\": \"<object>\",\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
+                  "raw": "{\n  \"model\": \"deepseek-chat\",\n  \"prompt\": \"Once upon a time,\",\n  \"echo\": \"<boolean>\",\n  \"frequency_penalty\": 0,\n  \"logprobs\": \"<integer>\",\n  \"max_tokens\": \"<integer>\",\n  \"presence_penalty\": 0,\n  \"stop\": {},\n  \"stream\": \"<boolean>\",\n  \"stream_options\": {},\n  \"suffix\": \"<string>\",\n  \"temperature\": 1,\n  \"top_p\": 1\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "completions"
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"choices\": [],\n  \"created\": 394,\n  \"model\": \"string\",\n  \"object\": \"text_completion\",\n  \"system_fingerprint\": \"string\",\n  \"usage\": {}\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"choices\": [],\n  \"created\": \"<long>\",\n  \"model\": \"<string>\",\n  \"object\": \"text_completion\",\n  \"system_fingerprint\": \"<string>\",\n  \"usage\": {}\n}",
+              "createdAt": "2026-10-22T01:41:06.000Z",
+              "updatedAt": "2026-10-22T01:41:06.000Z",
+              "uid": "35240-e29a73c8-153b-463b-9c61-d303c3a4c49b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:41:06.000Z",
+          "updatedAt": "2026-10-22T01:41:06.000Z",
+          "uid": "35240-b66a816a-343d-4ef0-9483-655f6bf2ab7a"
         }
       ],
-      "event": []
+      "id": "9b07d370-fc51-4452-b271-9906efa670f7",
+      "createdAt": "2026-10-22T01:41:06.000Z",
+      "updatedAt": "2026-10-22T01:41:06.000Z",
+      "uid": "35240-9b07d370-fc51-4452-b271-9906efa670f7"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.deepseek.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.deepseek.com/beta"
     }
-  ],
-  "info": {
-    "_postman_id": "7b261ea5-197f-44be-b95c-61be61e85671",
-    "name": "DeepSeek Completion Chat Completions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Creates a model response for the given chat conversation.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

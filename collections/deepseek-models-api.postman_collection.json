@@ -1,101 +1,112 @@
 {
+  "info": {
+    "_postman_id": "ff4564e8-73ec-4d63-8834-d8e7090f83f2",
+    "name": "DeepSeek Models API",
+    "description": "API for listing available models with basic information, including owner and availability.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:12.000Z",
+    "updatedAt": "2026-10-22T01:41:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff4564e8-73ec-4d63-8834-d8e7090f83f2"
+  },
   "item": [
     {
-      "id": "66f18380-b448-492e-b625-d647c781d4ca",
-      "name": "Models",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "models",
       "item": [
         {
-          "id": "ccdc3c26-1b11-45bf-9dac-5c86dd99db21",
           "name": "DeepSeek List Available Models",
+          "id": "65c539e9-ad3f-4ad2-899b-ddb5087f02fb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "DeepSeek List Available Models",
-            "description": {
-              "content": "Lists the currently available models and provides basic information about each one.",
-              "type": "text/plain"
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
             },
-            "url": {
-              "path": [
-                "models"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET"
+            "url": {
+              "raw": "{{baseUrl}}/models",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "models"
+              ]
+            },
+            "description": "Lists the currently available models and provides basic information about each one."
           },
           "response": [
             {
-              "id": "9062148c-74cc-45b5-82ff-aebeb7e428f4",
+              "id": "47483ed9-a88b-499f-9672-02091a3512e7",
               "name": "A list of available models.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "models"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/models",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "models"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"availability\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"owner\": \"string\",\n      \"availability\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"availability\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"availability\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:41:13.000Z",
+              "updatedAt": "2026-10-22T01:41:13.000Z",
+              "uid": "35240-47483ed9-a88b-499f-9672-02091a3512e7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:41:13.000Z",
+          "updatedAt": "2026-10-22T01:41:13.000Z",
+          "uid": "35240-65c539e9-ad3f-4ad2-899b-ddb5087f02fb"
         }
       ],
-      "event": []
+      "id": "dba8281e-135d-49dc-997c-6db89be70c21",
+      "createdAt": "2026-10-22T01:41:13.000Z",
+      "updatedAt": "2026-10-22T01:41:13.000Z",
+      "uid": "35240-dba8281e-135d-49dc-997c-6db89be70c21"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.deepseek.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.deepseek.com"
     }
-  ],
-  "info": {
-    "_postman_id": "ad97ec17-58a9-46e9-bf59-fb0297f6a657",
-    "name": "DeepSeek Completion Chat Models API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Creates a model response for the given chat conversation.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

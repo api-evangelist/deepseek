@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "fd2825a2-4ade-48ef-a1ca-430c040b0171",
+    "name": "DeepSeek Completion Chat API",
+    "description": "Creates a model response for the given chat conversation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:25.000Z",
+    "updatedAt": "2026-10-22T01:41:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fd2825a2-4ade-48ef-a1ca-430c040b0171"
+  },
+  "item": [
+    {
+      "name": "chat",
+      "item": [
+        {
+          "name": "completions",
+          "item": [
+            {
+              "name": "DeepSeek Create Chat Completion",
+              "id": "1eb3f924-a92a-43e1-9acb-af0688beb476",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messages\": [\n    {\n      \"content\": \"<string>\",\n      \"role\": \"user\"\n    },\n    {\n      \"content\": \"<string>\",\n      \"role\": \"system\"\n    }\n  ],\n  \"model\": \"deepseek-chat\",\n  \"frequency_penalty\": 0,\n  \"max_tokens\": 4096,\n  \"presence_penalty\": 0,\n  \"response_format\": {\n    \"type\": \"<string>\"\n  },\n  \"stop\": {},\n  \"stream\": \"<boolean>\",\n  \"stream_options\": {},\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"tool_choice\": {},\n  \"logprobs\": \"<boolean>\",\n  \"top_logprobs\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/completions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "completions"
+                  ]
+                },
+                "description": "Creates a model response for the given chat conversation."
+              },
+              "response": [
+                {
+                  "id": "08c82ef3-ee7d-4cab-9d9f-686c3cfa37e8",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"messages\": [\n    {\n      \"content\": \"<string>\",\n      \"role\": \"user\"\n    },\n    {\n      \"content\": \"<string>\",\n      \"role\": \"system\"\n    }\n  ],\n  \"model\": \"deepseek-chat\",\n  \"frequency_penalty\": 0,\n  \"max_tokens\": 4096,\n  \"presence_penalty\": 0,\n  \"response_format\": {\n    \"type\": \"<string>\"\n  },\n  \"stop\": {},\n  \"stream\": \"<boolean>\",\n  \"stream_options\": {},\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"tool_choice\": {},\n  \"logprobs\": \"<boolean>\",\n  \"top_logprobs\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/completions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "completions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"choices\": [],\n  \"created\": \"<long>\",\n  \"model\": \"<string>\",\n  \"system_fingerprint\": \"<string>\",\n  \"object\": \"chat.completion\",\n  \"usage\": {}\n}",
+                  "createdAt": "2026-10-22T01:41:26.000Z",
+                  "updatedAt": "2026-10-22T01:41:26.000Z",
+                  "uid": "35240-08c82ef3-ee7d-4cab-9d9f-686c3cfa37e8"
+                }
+              ],
+              "createdAt": "2026-10-22T01:41:26.000Z",
+              "updatedAt": "2026-10-22T01:41:26.000Z",
+              "uid": "35240-1eb3f924-a92a-43e1-9acb-af0688beb476"
+            }
+          ],
+          "id": "48d68e00-befb-488c-aad8-ad8acf632b57",
+          "createdAt": "2026-10-22T01:41:26.000Z",
+          "updatedAt": "2026-10-22T01:41:26.000Z",
+          "uid": "35240-48d68e00-befb-488c-aad8-ad8acf632b57"
+        }
+      ],
+      "id": "8e50f37d-439b-4996-aa45-faeafb6e8ccc",
+      "createdAt": "2026-10-22T01:41:26.000Z",
+      "updatedAt": "2026-10-22T01:41:26.000Z",
+      "uid": "35240-8e50f37d-439b-4996-aa45-faeafb6e8ccc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.deepseek.com"
+    }
+  ]
+}
