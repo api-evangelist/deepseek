@@ -1,4 +1,4 @@
-# DeepSeek (deepseek)
+# DeepSeek
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,146 +66,167 @@
 
 DeepSeek is an artificial intelligence company that provides advanced large language models accessible through an API that is compatible with the OpenAI and Anthropic SDKs. The DeepSeek API offers chat completions, fill-in-the-middle completions, function calling, JSON output, streaming, multi-turn conversations, context caching, and a thinking/reasoning mode for complex problem solving.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/deepseek/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/deepseek/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Chat · Chat Completions · LLM · Reasoning · Code Completion · Foundation Models
 
-## Scope
+## DeepSeek on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for DeepSeek is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/deepseek/](https://apis.io/providers/deepseek/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- AI
-- Artificial Intelligence
-- Chat
-- Chat Completion
-- LLM
-- Large Language Models
-- Reasoning
-- Code Completion
+- [DeepSeek Completions API](https://apis.io/apis/deepseek/deepseek-completions-api/) — The Completions API from DeepSeek — 1 operation(s) for completions.
+- [DeepSeek Models API](https://apis.io/apis/deepseek/deepseek-models-api/) — The Models API from DeepSeek — 1 operation(s) for models.
+- [DeepSeek User API](https://apis.io/apis/deepseek/deepseek-user-api/) — The User API from DeepSeek — 1 operation(s) for user.
+- [DeepSeek Chat Completions API](https://apis.io/apis/deepseek/deepseek-chat-completions-api/) — The Chat Completions API from DeepSeek — 1 operation(s) for chat completions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-27
-- **Modified:** 2026-05-29
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### DeepSeek Chat Completion API
+Event-driven and webhook contracts.
 
-Creates a model response for a given chat conversation. Supports the deepseek-chat and deepseek-reasoner models with options for tool calling, JSON output, streaming, temperature, top-p, frequency and presence penalties, and stop sequences. Compatible with the OpenAI Chat Completions request and response shapes.
+- [DeepSeek Streaming API (HTTP + SSE)](https://apis.io/asyncapis/deepseek/deepseek-asyncapi/)
 
-- **Human URL:** [https://api-docs.deepseek.com/api/create-chat-completion](https://api-docs.deepseek.com/api/create-chat-completion)
-- **Base URL:** `https://api.deepseek.com`
+#### Event channels (2)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- AI
-- Artificial Intelligence
-- Chat
-- Chat Completion
-- LLM
+- [/beta/completions](https://apis.io/channels/deepseek/beta-completions/)
+- [/chat/completions](https://apis.io/channels/deepseek/chat-completions/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://api-docs.deepseek.com/api/create-chat-completion)
-- [OpenAPI](openapi/deepseek-chat-completion-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/deepseek-chat-completion-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/deepseek-chat-completion-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [AsyncAPI](asyncapi/deepseek-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Rules](rules/deepseek-chat-completion-api-rules.yml)
-- [Capabilities](capabilities/deepseek-chat-completion-api-capabilities.yml)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### DeepSeek Fill-In-The-Middle (FIM) Completion API
+- [Deepseek Agentic Access](https://apis.io/agentic-access/deepseek/deepseek-agentic-access/)
 
-Beta endpoint that performs fill-in-the-middle completions where a prompt and an optional suffix are provided and the model fills the gap. Useful for code completion and inline code generation tasks.
+#### JSON-LD (1)
 
-- **Human URL:** [https://api-docs.deepseek.com/guides/fim_completion](https://api-docs.deepseek.com/guides/fim_completion)
-- **Base URL:** `https://api.deepseek.com/beta`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Deepseek Context](https://apis.io/jsonld/deepseek/deepseek-context/)
 
-- AI
-- Artificial Intelligence
-- Code Completion
-- Fill-In-The-Middle
-- FIM
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://api-docs.deepseek.com/guides/fim_completion)
-- [OpenAPI](openapi/deepseek-fim-completion-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/deepseek-fim-completion.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/deepseek-fim-completion.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [AsyncAPI](asyncapi/deepseek-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Rules](rules/deepseek-fim-completion-rules.yml)
-- [Capabilities](capabilities/deepseek-fim-completion-capabilities.yml)
+- [DeepSeek Vocabulary](https://apis.io/vocabularies/deepseek/deepseek-vocabulary/)
 
-### DeepSeek List Models API
+#### Collections (8)
 
-Lists the currently available DeepSeek models, providing basic information about each one such as the model identifier, owner, and availability.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://api-docs.deepseek.com/api/list-models](https://api-docs.deepseek.com/api/list-models)
-- **Base URL:** `https://api.deepseek.com`
+- [DeepSeek Completion Chat API](https://apis.io/collections/deepseek/open-deepseek-chat-api/)
+- [DeepSeek Chat Completion API](https://apis.io/collections/deepseek/open-deepseek-chat-completion-api/)
+- [DeepSeek Completion Chat Completions API](https://apis.io/collections/deepseek/open-deepseek-completions-api/)
+- [DeepSeek FIM Completion](https://apis.io/collections/deepseek/open-deepseek-fim-completion/)
+- [DeepSeek Models API](https://apis.io/collections/deepseek/open-deepseek-lists-models-api/)
+- [DeepSeek Completion Chat Models API](https://apis.io/collections/deepseek/open-deepseek-models-api/)
+- [DeepSeek Completion Chat User API](https://apis.io/collections/deepseek/open-deepseek-user-api/)
+- [DeepSeek User Balance API](https://apis.io/collections/deepseek/open-deepseek-user-balance-api/)
 
-#### Tags
+#### Governance rules (5)
 
-- AI
-- Artificial Intelligence
-- Models
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [DeepSeek — asyncapi rules](https://apis.io/rules/deepseek/deepseek-asyncapi-spectral-rules/)
+- [DeepSeek — chat completion api rules](https://apis.io/rules/deepseek/deepseek-chat-completion-api-rules/)
+- [DeepSeek — fim completion rules](https://apis.io/rules/deepseek/deepseek-fim-completion-rules/)
+- [DeepSeek — lists models api rules](https://apis.io/rules/deepseek/deepseek-lists-models-api-rules/)
+- [DeepSeek — user balance api rules](https://apis.io/rules/deepseek/deepseek-user-balance-api-rules/)
 
-- [Documentation](https://api-docs.deepseek.com/api/list-models)
-- [OpenAPI](openapi/deepseek-lists-models-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/deepseek-lists-models-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/deepseek-lists-models-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Rules](rules/deepseek-lists-models-api-rules.yml)
-- [Capabilities](capabilities/deepseek-lists-models-api-capabilities.yml)
+#### Security (2)
 
-### DeepSeek User Balance API
+Authentication, trust centre, and vulnerability disclosure.
 
-Returns the current account balance for the authenticated DeepSeek user, including available credit and currency. Useful for monitoring spend and gating workloads programmatically.
+- [Deepseek Authentication](https://apis.io/security/deepseek/deepseek-authentication/)
+- [Deepseek Domain Security](https://apis.io/security/deepseek/deepseek-domain-security/)
 
-- **Human URL:** [https://api-docs.deepseek.com/api/get-user-balance](https://api-docs.deepseek.com/api/get-user-balance)
-- **Base URL:** `https://api.deepseek.com`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- AI
-- Artificial Intelligence
-- Balance
-- Billing
-- Pricing
+- [Deepseek Plans Pricing](https://apis.io/plans/deepseek/deepseek-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://api-docs.deepseek.com/api/get-user-balance)
-- [OpenAPI](openapi/deepseek-user-balance-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/deepseek-user-balance-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/deepseek-user-balance-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Rules](rules/deepseek-user-balance-api-rules.yml)
-- [Capabilities](capabilities/deepseek-user-balance-api-capabilities.yml)
+Published request limits.
 
-## Common Properties
+- [Deepseek Rate Limits](https://apis.io/rate-limits/deepseek/deepseek-rate-limits/)
 
-- [GitHub Organization](https://github.com/deepseek-ai)
-- [LinkedIn](https://www.linkedin.com/company/deepseek-ai)
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Deepseek Finops](https://apis.io/finops/deepseek/deepseek-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.deepseek.com/)
 - [Documentation](https://api-docs.deepseek.com/)
 - [Pricing](https://api-docs.deepseek.com/quick_start/pricing)
-- [Authentication](https://api-docs.deepseek.com/quick_start/token_usage)
-- [Rate Limits](https://api-docs.deepseek.com/quick_start/rate_limit)
-- [Errors](https://api-docs.deepseek.com/quick_start/error_codes)
-- [Status Page](https://status.deepseek.com/)
-- [F A Q](https://api-docs.deepseek.com/faq)
 - [Changelog](https://api-docs.deepseek.com/updates)
-- [Website](https://www.deepseek.com/)
-- [Privacy Policy](https://chat.deepseek.com/downloads/DeepSeek%20Privacy%20Policy.html)
-- [Terms of Service](https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html)
-- [JSON-LD](json-ld/deepseek-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/deepseek-vocabulary.yml)
+- [Blog](https://www.deepseek.com/news/)
+- [Terms of service](https://chat.deepseek.com/downloads/DeepSeek%20Terms%20of%20Use.html)
+- [Privacy policy](https://chat.deepseek.com/downloads/DeepSeek%20Privacy%20Policy.html)
+- [GitHub](https://github.com/deepseek-ai)
+- [Status](https://status.deepseek.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 57.2 |
+| Contract governance | 25.0 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 36.8 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/deepseek/](https://apis.io/providers/deepseek/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DeepSeek: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/deepseek/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
